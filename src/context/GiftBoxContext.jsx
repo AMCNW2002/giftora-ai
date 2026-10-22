@@ -15,10 +15,10 @@ const DEFAULT_BOX = {
 };
 
 export const RIBBON_COLORS = {
-  rose: { label: 'Rose Coral', hex: '#E85D75' },
-  gold: { label: 'Warm Gold', hex: '#F4A261' },
-  navy: { label: 'Deep Navy', hex: '#1A1A2E' },
-  sage: { label: 'Earthy Sage', hex: '#8AAE92' }
+  rose: { label: 'Velvet Rose', hex: '#8C4843' },
+  gold: { label: 'Champagne Gold', hex: '#C8A56A' },
+  navy: { label: 'Dark Chocolate', hex: '#3B2118' },
+  sage: { label: 'Heritage Olive', hex: '#5E6B54' }
 };
 
 export function GiftBoxProvider({ children }) {

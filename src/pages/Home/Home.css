@@ -1,644 +1,1242 @@
-/* ==========================================================================
-   GIFTORA AI — HOME PAGE STYLES
-   ========================================================================== */
-
 .giftora-home {
-  position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
+  background: #fffdf9;
 }
 
-/* 1. HERO SECTION */
+.giftora-home__eyebrow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 0.7rem;
+  color: #a07854;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.giftora-home__eyebrow image {
+  display: block;
+  width: 40px;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.giftora-home__eyebrow svg {
+  flex: 0 0 auto;
+}
 .giftora-hero {
   position: relative;
-  padding: 4rem 0 5rem;
-  background: linear-gradient(180deg, #fdf8f5 0%, #faf0ea 100%);
-  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 18% 70%, rgba(226, 195, 163, 0.25), transparent 47%),
+    linear-gradient(110deg, #fcf7ef 0%, #f8efe3 56%, #f1e4d4 100%);
 }
 
-/* Background Blobs */
-.giftora-hero__bg-blob {
+.giftora-hero::before,
+.giftora-hero::after {
   position: absolute;
-  border-radius: var(--radius-full);
-  filter: blur(80px);
   z-index: 0;
+  color: rgba(176, 138, 102, 0.13);
+  content: '❧';
+  font-family: Georgia, serif;
+  font-size: 15rem;
+  line-height: 1;
   pointer-events: none;
-  opacity: 0.6;
 }
 
-.giftora-hero__bg-blob--1 {
-  width: 450px;
-  height: 450px;
-  background: rgba(232, 93, 117, 0.18);
-  top: -100px;
-  right: -100px;
+.giftora-hero::before {
+  top: 12%;
+  left: -5.3rem;
+  transform: rotate(-35deg);
 }
 
-.giftora-hero__bg-blob--2 {
-  width: 380px;
-  height: 380px;
-  background: rgba(244, 162, 97, 0.16);
-  bottom: -50px;
-  left: -80px;
+.giftora-hero::after {
+  right: 40%;
+  bottom: -6.5rem;
+  transform: rotate(28deg);
 }
 
 .giftora-hero__grid {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  min-height: 510px;
+  grid-template-columns: 0.88fr 1.12fr;
   align-items: center;
-  gap: 3.5rem;
+  gap: clamp(2rem, 5vw, 5rem);
 }
 
 .giftora-hero__content {
-  max-width: 620px;
-}
-
-.text-highlight-rose {
-  color: var(--primary);
-  position: relative;
-}
-
-.text-highlight-gold {
-  color: var(--accent);
-  position: relative;
+  max-width: 510px;
+  padding: 3.75rem 0;
 }
 
 .giftora-hero__title {
-  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
-  line-height: 1.18;
-  margin-bottom: 1.25rem;
+  max-width: 500px;
+  margin-bottom: 1.15rem;
+  color: #302017;
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5.5vw, 5.2rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.99;
+}
+
+.giftora-hero__title em {
+  color: #7c5135;
+  font-weight: 400;
 }
 
 .giftora-hero__subtitle {
-  font-size: 1.12rem;
-  line-height: 1.65;
-  color: var(--text-muted);
-  margin-bottom: 2rem;
+  max-width: 435px;
+  margin-bottom: 1.7rem;
+  color: #716258;
+  font-size: 0.95rem;
+  line-height: 1.75;
 }
 
 .giftora-hero__actions {
   display: flex;
-  align-items: center;
-  gap: 1.25rem;
   flex-wrap: wrap;
-  margin-bottom: 2.75rem;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-/* Trust Badges Row */
-.giftora-hero__trust {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
+.giftora-hero__actions .giftora-btn,
+.giftora-box-feature__content .giftora-btn {
+  min-height: 44px;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  font-size: 0.69rem;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
 }
 
-.giftora-hero__trust-item {
+.giftora-hero__note {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.85rem;
-  color: var(--text);
+  margin-top: 1.6rem;
+  color: #78634f;
+  font-size: 0.72rem;
+}
+
+.giftora-hero__note svg {
+  flex-shrink: 0;
+  color: #bd9058;
+}
+
+.giftora-hero__visual {
+  position: relative;
+  align-self: stretch;
+  min-height: 450px;
+  overflow: visible;
+}
+
+.giftora-hero__slides {
+  position: absolute;
+  inset: 0 calc((min(100vw, var(--container-max)) - 100vw) / 2) 0 0;
+  overflow: hidden;
+  background: #e8d6c3;
+}
+
+.giftora-hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 46%;
+  opacity: 0;
+  transition: opacity 700ms ease-in-out;
+}
+
+.giftora-hero__image--active {
+  opacity: 1;
+}
+
+.giftora-hero__image-wash {
+  position: absolute;
+  inset: 0 calc((min(100vw, var(--container-max)) - 100vw) / 2) 0 0;
+  background: linear-gradient(90deg, rgba(249, 240, 228, 0.3), transparent 28%),
+    linear-gradient(0deg, rgba(38, 24, 16, 0.42), transparent 48%);
+  pointer-events: none;
+}
+
+.giftora-hero__caption {
+  position: absolute;
+  right: 1.8rem;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  color: #fffaf3;
+  text-align: right;
+  text-shadow: 0 2px 12px rgba(30, 18, 11, 0.28);
+}
+
+.giftora-hero__caption span {
+  font-size: 0.63rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.giftora-hero__caption strong {
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
   font-weight: 500;
 }
 
-.giftora-hero__trust-stars {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  color: var(--secondary);
-}
-
-.giftora-hero__trust-stars strong {
-  font-weight: 700;
-}
-
-.giftora-hero__trust-divider {
-  width: 1px;
-  height: 20px;
-  background-color: var(--border);
-}
-
-/* Visuals Column */
-.giftora-hero__visuals {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.giftora-hero__cards-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 440px;
-  height: 440px;
-}
-
-.giftora-hero__floating-card {
+.giftora-hero__product-note {
   position: absolute;
-  background: var(--surface);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border);
-  overflow: hidden;
-  width: 260px;
-  transition: transform var(--transition-normal);
-}
-
-.giftora-hero__floating-card img {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-}
-
-.giftora-hero__floating-card-info {
-  padding: 1rem;
-}
-
-.giftora-hero__floating-card-info h4 {
-  font-size: 0.95rem;
-  margin-bottom: 0.35rem;
-  color: var(--secondary);
-}
-
-.giftora-hero__floating-card-meta {
+  right: 1.5rem;
+  bottom: 6.4rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.giftora-hero__floating-card-price {
-  font-weight: 700;
-  color: var(--primary);
-  font-size: 1.05rem;
-}
-
-.giftora-hero__floating-card-tag {
-  font-size: 0.72rem;
-  font-weight: 600;
-  background: var(--accent-light);
-  color: #c7651a;
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
-}
-
-.giftora-hero__floating-card--1 {
-  top: 10px;
-  left: 0;
-  z-index: 2;
-}
-
-.giftora-hero__floating-card--2 {
-  bottom: 20px;
-  right: 0;
-  z-index: 1;
-}
-
-.giftora-hero__ai-badge {
-  position: absolute;
-  top: 50%;
-  left: 45%;
-  transform: translate(-50%, -50%);
-  background: rgba(26, 26, 46, 0.94);
-  backdrop-filter: blur(10px);
-  color: #ffffff;
-  padding: 0.75rem 1.15rem;
-  border-radius: var(--radius-full);
-  display: flex;
+  max-width: min(340px, 75%);
   align-items: center;
   gap: 0.75rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  z-index: 3;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255, 250, 243, 0.8);
+  background: rgba(255, 252, 247, 0.94);
+  box-shadow: 0 10px 30px rgba(44, 28, 18, 0.14);
+  color: #38261f;
+  transition: transform var(--transition-fast);
 }
 
-.giftora-hero__ai-badge-icon {
+.giftora-hero__product-note:hover {
+  transform: translateY(-3px);
+}
+
+.giftora-hero__product-note-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  place-items: center;
+  background: #f3e8d8;
+  color: #80583a;
+}
+
+.giftora-hero__product-note > span:nth-child(2) {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.giftora-hero__product-note small {
+  color: #9a7857;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.giftora-hero__product-note strong {
+  overflow: hidden;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.giftora-hero__product-note > svg {
+  flex-shrink: 0;
+  color: #9a7857;
+}
+
+.giftora-hero__slider-controls {
+  position: absolute;
+  z-index: 2;
+  bottom: 1.25rem;
+  left: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.giftora-hero__slider-arrow {
+  display: grid;
   width: 32px;
   height: 32px;
-  border-radius: var(--radius-full);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  border: 1px solid rgba(255, 250, 243, 0.75);
+  border-radius: 50%;
+  background: rgba(48, 32, 23, 0.5);
+  color: #fffaf3;
+  place-items: center;
+  transition: background var(--transition-fast);
+}
+
+.giftora-hero__slider-arrow:hover {
+  background: rgba(48, 32, 23, 0.82);
+}
+
+.giftora-hero__slider-dots {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-}
-
-.giftora-hero__ai-badge strong {
-  display: block;
-  font-size: 0.85rem;
-  color: #ffffff;
-}
-
-.giftora-hero__ai-badge span {
-  display: block;
-  font-size: 0.75rem;
-  color: #c3c3db;
-}
-
-/* 2. VALUES SECTION */
-.giftora-values {
-  padding: 4.5rem 0 3.5rem;
-}
-
-.giftora-values__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.giftora-values__card {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 2.25rem 1.75rem;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-.giftora-values__card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
-
-.giftora-values__icon {
-  width: 54px;
-  height: 54px;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.25rem;
-}
-
-.giftora-values__icon--rose {
-  background-color: var(--primary-light);
-  color: var(--primary);
-}
-
-.giftora-values__icon--gold {
-  background-color: var(--accent-light);
-  color: var(--accent);
-}
-
-.giftora-values__icon--navy {
-  background-color: #ededf5;
-  color: var(--secondary);
-}
-
-.giftora-values__card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.6rem;
-}
-
-.giftora-values__card p {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-/* 3. FEATURED PRODUCTS */
-.giftora-featured {
-  padding: 3.5rem 0 4.5rem;
-}
-
-.giftora-section-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.giftora-featured__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.75rem;
-}
-
-/* 4. AI GIFT FINDER MINI-PANEL */
-.giftora-finder {
-  padding: 3rem 0 4.5rem;
-}
-
-.giftora-finder__card {
-  background: linear-gradient(135deg, #ffffff 0%, #fef8f4 100%);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-xl);
-  padding: 3.25rem 2.5rem;
-  box-shadow: var(--shadow-md);
-}
-
-.giftora-finder__header {
-  text-align: center;
-  max-width: 620px;
-  margin: 0 auto 2.5rem;
-}
-
-.giftora-finder__header p {
-  color: var(--text-muted);
-  font-size: 1.05rem;
-  margin-top: 0.5rem;
-}
-
-.giftora-finder__form {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr) 1.5fr auto;
-  gap: 1.25rem;
-  align-items: flex-end;
-}
-
-.giftora-finder__field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.giftora-finder__field label {
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--secondary);
-}
-
-.giftora-finder__field select,
-.giftora-finder__field input {
-  height: 48px;
-  padding: 0 1rem;
-  border-radius: var(--radius-sm);
-  background-color: var(--surface);
-  border: 1.5px solid var(--border);
-  color: var(--secondary);
-  font-size: 0.92rem;
-  transition: border-color var(--transition-fast);
-}
-
-.giftora-finder__field select:focus,
-.giftora-finder__field input:focus {
-  border-color: var(--primary);
-  outline: none;
-}
-
-.giftora-finder__btn-wrap {
-  display: flex;
-  align-items: flex-end;
-}
-
-.giftora-finder__btn-wrap .giftora-btn {
-  height: 48px;
-}
-
-/* AI Result Drawer */
-.giftora-finder__result {
-  margin-top: 2rem;
-  background-color: var(--surface);
-  border: 1.5px solid #f2e2da;
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.giftora-finder__result-tag {
-  display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--primary);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 1rem;
+  padding: 0 0.1rem;
 }
 
-.giftora-finder__result-body {
+.giftora-hero__slider-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 250, 243, 0.62);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.giftora-hero__slider-dot--active {
+  background: #fffaf3;
+  transform: scale(1.3);
+}
+
+.giftora-benefits {
+  border-bottom: 1px solid #eee3d7;
+  background: #fffdf9;
+}
+
+.giftora-benefits__grid {
   display: grid;
-  grid-template-columns: 120px 1fr auto;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.giftora-finder__result-img {
-  width: 120px;
-  height: 120px;
-  border-radius: var(--radius-md);
-  object-fit: cover;
-}
-
-.giftora-finder__result-info h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.35rem;
-}
-
-.giftora-finder__result-info p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
-}
-
-.giftora-finder__result-cat {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--accent);
-  display: inline-block;
-  margin-bottom: 0.2rem;
-}
-
-.giftora-finder__result-pricing {
-  display: flex;
+  min-height: 78px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   align-items: center;
   gap: 1rem;
 }
 
-.giftora-finder__result-price {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--secondary);
+.giftora-benefit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 0;
 }
 
-.giftora-finder__result-rating {
+.giftora-benefit > span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  border: 1px solid #e4d3c0;
+  border-radius: 50%;
+  background: #f7efe5;
+  color: #78563b;
+  place-items: center;
+}
+
+.giftora-benefit > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.giftora-benefit strong {
+  color: #3b2a20;
+  font-size: 0.7rem;
+  font-weight: 650;
+}
+
+.giftora-benefit small {
+  color: #8a7a6f;
+  font-size: 0.63rem;
+}
+
+.giftora-home-section {
+  padding: clamp(3.1rem, 6vw, 5.1rem) 0;
+}
+
+.giftora-categories {
+  background: #fffdf9;
+}
+
+.giftora-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 1.55rem;
+}
+
+.giftora-section-heading h2,
+.giftora-box-feature__content h2,
+.giftora-story__content h2,
+.giftora-finder__intro h2 {
+  margin: 0;
+  color: #302017;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.giftora-text-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.45rem;
+  padding-bottom: 0.3rem;
+  color: #553723;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.giftora-text-link svg {
+  transition: transform var(--transition-fast);
+}
+
+.giftora-text-link:hover {
+  color: #9b6e42;
+}
+
+.giftora-text-link:hover svg {
+  transform: translateX(3px);
+}
+
+.giftora-categories__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.giftora-category-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e9ded1;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(68, 43, 26, 0.06);
+  color: #3a2b21;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.giftora-category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(68, 43, 26, 0.12);
+}
+
+.giftora-category-card > img {
+  width: 100%;
+  aspect-ratio: 1 / 0.98;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.giftora-category-card:hover > img {
+  transform: scale(1.045);
+}
+
+.giftora-category-card__icon {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  background: rgba(255, 252, 247, 0.9);
+  color: #62452e;
+  place-items: center;
+}
+
+.giftora-category-card__title {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+  padding: 0.6rem 0.7rem;
+  font-size: 0.69rem;
+  font-weight: 650;
+}
+
+.giftora-category-card__title svg {
+  flex: 0 0 auto;
+  color: #a47b55;
+}
+
+.giftora-bestsellers {
+  background:
+    radial-gradient(ellipse at 88% 50%, rgba(235, 218, 196, 0.28), transparent 34%),
+    #faf5ed;
+}
+
+.giftora-featured__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.giftora-featured__grid .giftora-card {
+  border-color: #e9ded1;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(68, 43, 26, 0.055);
+}
+
+.giftora-featured__grid .giftora-card__image-wrap {
+  aspect-ratio: 1 / 0.92;
+}
+
+.giftora-featured__grid .giftora-card__body {
+  padding: 0.85rem;
+}
+
+.giftora-featured__grid .giftora-card__title {
+  font-size: 1.08rem;
+}
+
+.giftora-featured__grid .giftora-card__desc {
+  min-height: 2.4em;
+  font-size: 0.75rem;
+}
+
+.giftora-featured__grid .giftora-card__btn {
+  padding: 0.45rem 0.6rem;
+  font-size: 0.72rem;
+}
+
+.giftora-box-feature {
+  display: grid;
+  min-height: 420px;
+  grid-template-columns: 1.05fr 0.95fr;
+  background: #f4e9dc;
+}
+
+.giftora-box-feature__image {
+  position: relative;
+  min-height: 380px;
+  overflow: hidden;
+  background: #e4d0bb;
+}
+
+.giftora-box-feature__image img {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  object-position: center 48%;
+}
+
+.giftora-box-feature__image-caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.75rem;
+  background: rgba(255, 251, 245, 0.92);
+  color: #5d412a;
+  font-size: 0.67rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+}
+
+.giftora-box-feature__content {
+  position: relative;
+  display: flex;
+  max-width: 680px;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2.25rem, 5vw, 5.2rem);
+}
+
+.giftora-box-feature__content h2 {
+  max-width: 470px;
+}
+
+.giftora-box-feature__content > p {
+  max-width: 460px;
+  margin: 0.9rem 0 1.35rem;
+  color: #736357;
+  font-size: 0.87rem;
+  line-height: 1.75;
+}
+
+.giftora-box-feature__steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.giftora-box-feature__steps li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #55463a;
+  font-size: 0.71rem;
+  line-height: 1.4;
+}
+
+.giftora-box-feature__steps li span {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  border: 1px solid #e3d2bf;
+  border-radius: 50%;
+  background: #fbf5ed;
+  color: #76563b;
+  place-items: center;
+}
+
+.giftora-box-feature__content > a {
+  align-self: flex-start;
+}
+
+.giftora-occasions {
+  background: #fffdf9;
+}
+
+.giftora-occasions__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.giftora-occasion-card {
+  overflow: hidden;
+  border: 1px solid #e9ded1;
+  background: #fff;
+  color: #3a2b21;
+  text-align: left;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.giftora-occasion-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(68, 43, 26, 0.1);
+}
+
+.giftora-occasion-card__image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1.55 / 1;
+  background: #efe2d3;
+}
+
+.giftora-occasion-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.giftora-occasion-card:hover .giftora-occasion-card__image img {
+  transform: scale(1.05);
+}
+
+.giftora-occasion-card__image > span {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  background: rgba(255, 252, 247, 0.92);
+  color: #694b32;
+  place-items: center;
+}
+
+.giftora-occasion-card__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 0.85rem;
+  font-size: 0.73rem;
+  font-weight: 650;
+}
+
+.giftora-occasion-card__title svg {
+  color: #a47b55;
+  transition: transform var(--transition-fast);
+}
+
+.giftora-occasion-card:hover .giftora-occasion-card__title svg {
+  transform: translateX(3px);
+}
+
+.giftora-story {
+  display: grid;
+  min-height: 360px;
+  grid-template-columns: 1fr 1fr;
+  background: #f5ebdf;
+}
+
+.giftora-story__image {
+  min-height: 320px;
+  overflow: hidden;
+}
+
+.giftora-story__image img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  object-position: center 60%;
+}
+
+.giftora-story__content {
+  position: relative;
+  display: flex;
+  max-width: 700px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(2.25rem, 5.5vw, 5.5rem);
+  overflow: hidden;
+}
+
+.giftora-story__content h2 {
+  max-width: 470px;
+}
+
+.giftora-story__content p {
+  z-index: 1;
+  max-width: 470px;
+  margin: 0.9rem 0 1.25rem;
+  color: #716258;
+  font-size: 0.86rem;
+  line-height: 1.75;
+}
+
+.giftora-story__content .giftora-text-link {
+  z-index: 1;
+}
+
+.giftora-story__decoration {
+  position: absolute;
+  right: -0.4rem;
+  bottom: 0.2rem;
+  color: rgba(153, 113, 76, 0.16);
+  transform: rotate(-25deg);
+}
+
+.giftora-finder {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  background: #fffdf9;
+}
+
+.giftora-finder__card {
+  padding: clamp(1.5rem, 4vw, 3.1rem);
+  border: 1px solid #e9ded1;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(224, 196, 167, 0.24), transparent 40%),
+    #fbf6ef;
+  box-shadow: 0 8px 28px rgba(68, 43, 26, 0.06);
+}
+
+.giftora-finder__intro {
+  max-width: 640px;
+  margin-bottom: 1.7rem;
+}
+
+.giftora-finder__intro p {
+  margin: 0.7rem 0 0;
+  color: #77695e;
   font-size: 0.85rem;
-  color: #df8f4a;
-  font-weight: 600;
+  line-height: 1.65;
+}
+
+.giftora-finder__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.8fr 1.25fr auto;
+  align-items: end;
+  gap: 0.8rem;
+}
+
+.giftora-finder__field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.38rem;
+}
+
+.giftora-finder__field label {
+  color: #4a3728;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.giftora-finder__field select,
+.giftora-finder__field input {
+  width: 100%;
+  height: 44px;
+  padding: 0 0.75rem;
+  border: 1px solid #e1d3c3;
+  border-radius: 3px;
+  background: #fffdfa;
+  color: #3f3025;
+  font-size: 0.78rem;
+}
+
+.giftora-finder__field select:focus,
+.giftora-finder__field input:focus {
+  border-color: #a47b55;
+  outline: 2px solid rgba(164, 123, 85, 0.15);
+}
+
+.giftora-finder__form > .giftora-btn {
+  min-height: 44px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.giftora-finder__result {
+  display: grid;
+  grid-template-columns: 105px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #e6d9ca;
+  background: #fffdf9;
+}
+
+.giftora-finder__result > img {
+  width: 105px;
+  height: 105px;
+  object-fit: cover;
+}
+
+.giftora-finder__result-copy .giftora-home__eyebrow {
+  margin-bottom: 0.25rem;
+  font-size: 0.58rem;
+}
+
+.giftora-finder__result-copy h3 {
+  margin: 0 0 0.25rem;
+  color: #302017;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+}
+
+.giftora-finder__result-copy p {
+  margin: 0 0 0.35rem;
+  color: #77695e;
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.giftora-finder__result-copy > strong {
+  color: #4b3424;
+  font-size: 0.82rem;
 }
 
 .giftora-finder__result-actions {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 0.65rem;
 }
 
-.giftora-finder__add-btn {
-  padding: 0.65rem 1.25rem;
-  background-color: var(--primary);
-  color: #ffffff;
-  border-radius: var(--radius-full);
-  font-size: 0.9rem;
-  font-weight: 600;
-  display: flex;
+.giftora-finder__result-actions button {
+  display: inline-flex;
+  min-height: 38px;
   align-items: center;
-  gap: 0.45rem;
-  cursor: pointer;
-  transition: all var(--transition-fast);
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.8rem;
+  background: #392419;
+  color: #fffaf3;
+  font-size: 0.7rem;
 }
 
-.giftora-finder__add-btn:hover {
-  background-color: var(--primary-hover);
-  transform: translateY(-2px);
+.giftora-finder__result-actions button:hover {
+  background: #66432d;
 }
 
-.giftora-finder__view-link {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--secondary);
-  text-align: center;
+.giftora-finder__result-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  color: #76563b;
+  font-size: 0.68rem;
 }
 
-.giftora-finder__view-link:hover {
-  color: var(--primary);
-}
+@media (max-width: 1050px) {
+  .giftora-hero__grid {
+    min-height: 440px;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 2rem;
+  }
 
-/* 5. CTA BANNER */
-.giftora-cta {
-  padding: 3.5rem 0 5rem;
-}
+  .giftora-hero__visual {
+    min-height: 400px;
+  }
 
-.giftora-cta__card {
-  position: relative;
-  background: linear-gradient(135deg, var(--secondary) 0%, #282845 100%);
-  border-radius: var(--radius-xl);
-  padding: 4.5rem 3.5rem;
-  overflow: hidden;
-  color: #ffffff;
-}
+  .giftora-benefits__grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+  }
 
-.giftora-cta__content {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-}
+  .giftora-benefit {
+    justify-content: flex-start;
+  }
 
-.giftora-cta__badge {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-}
+  .giftora-categories__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 
-.giftora-cta__content h2 {
-  color: #ffffff;
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-  margin-bottom: 1.25rem;
-}
-
-.giftora-cta__content p {
-  color: #c0c0d8;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 2.25rem;
-}
-
-.giftora-cta__decor {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 320px;
-  height: 320px;
-  border-radius: var(--radius-full);
-  background: radial-gradient(circle, rgba(232, 93, 117, 0.25) 0%, rgba(244, 162, 97, 0) 70%);
-  pointer-events: none;
-}
-
-/* RESPONSIVE BREAKPOINTS */
-@media (max-width: 1080px) {
   .giftora-featured__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .giftora-finder__form {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .giftora-finder__btn-wrap {
-    grid-column: span 2;
+  .giftora-finder__form > .giftora-btn {
+    justify-self: start;
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 760px) {
   .giftora-hero__grid {
+    min-height: 0;
     grid-template-columns: 1fr;
-    text-align: center;
+    gap: 0;
   }
 
   .giftora-hero__content {
-    margin: 0 auto;
+    max-width: 620px;
+    padding: 3.1rem 0 2.3rem;
   }
 
-  .giftora-hero__actions {
-    justify-content: center;
+  .giftora-hero__title {
+    max-width: 550px;
+    font-size: clamp(3rem, 9vw, 4.3rem);
   }
 
-  .giftora-hero__trust {
-    justify-content: center;
+  .giftora-hero__subtitle {
+    max-width: 520px;
   }
 
-  .giftora-values__grid {
+  .giftora-hero__visual {
+    min-height: clamp(300px, 62vw, 440px);
+    margin-right: calc((min(100vw, var(--container-max)) - 100vw) / 2);
+    margin-left: calc((min(100vw, var(--container-max)) - 100vw) / 2);
+  }
+
+  .giftora-hero__image {
+    right: auto;
+  }
+
+  .giftora-hero__image-wash {
+    right: 0;
+  }
+
+  .giftora-hero__slides {
+    right: 0;
+  }
+
+  .giftora-hero__product-note {
+    right: 1rem;
+    bottom: 5.5rem;
+  }
+
+  .giftora-hero__caption {
+    right: 1.2rem;
+    bottom: 1.25rem;
+  }
+
+  .giftora-box-feature,
+  .giftora-story {
     grid-template-columns: 1fr;
   }
 
-  .giftora-finder__result-body {
-    grid-template-columns: 1fr;
-    text-align: center;
+  .giftora-box-feature__image {
+    min-height: 330px;
   }
 
-  .giftora-finder__result-img {
-    margin: 0 auto;
+  .giftora-box-feature__image img {
+    min-height: 330px;
+    max-height: 440px;
   }
 
-  .giftora-finder__result-pricing {
-    justify-content: center;
+  .giftora-box-feature__content {
+    max-width: none;
+    padding: 2.5rem max(1.5rem, calc((100% - var(--container-max)) / 2));
   }
 
-  .giftora-finder__result-actions {
-    align-items: center;
+  .giftora-story__image {
+    min-height: 290px;
+    max-height: 420px;
+  }
+
+  .giftora-story__image img {
+    min-height: 290px;
+    max-height: 420px;
+  }
+
+  .giftora-story__content {
+    max-width: none;
+    padding: 2.5rem max(1.5rem, calc((100% - var(--container-max)) / 2));
   }
 }
 
-@media (max-width: 580px) {
-  .giftora-hero__cards-wrap {
-    height: 360px;
+@media (max-width: 560px) {
+  .giftora-home__eyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
   }
 
-  .giftora-hero__floating-card {
-    width: 210px;
+  .giftora-hero__content {
+    padding-top: 2.4rem;
   }
 
-  .giftora-hero__floating-card img {
-    height: 125px;
+  .giftora-hero__title {
+    max-width: 430px;
+    font-size: clamp(2.8rem, 12vw, 3.8rem);
+  }
+
+  .giftora-hero__subtitle {
+    font-size: 0.87rem;
+  }
+
+  .giftora-hero__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .giftora-hero__actions > a,
+  .giftora-hero__actions .giftora-btn {
+    width: 100%;
+  }
+
+  .giftora-hero__note {
+    align-items: flex-start;
+    max-width: 330px;
+    line-height: 1.5;
+  }
+
+  .giftora-hero__visual {
+    min-height: 320px;
+  }
+
+  .giftora-hero__product-note {
+    right: auto;
+    left: 1rem;
+    max-width: calc(100% - 5rem);
+  }
+
+  .giftora-hero__slider-controls {
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  .giftora-benefits__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.1rem 0.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .giftora-hero__image {
+      transition: none;
+    }
+  }
+
+  .giftora-benefit {
+    justify-content: flex-start;
+    gap: 0.45rem;
+  }
+
+  .giftora-benefit > span {
+    width: 30px;
+    height: 30px;
+  }
+
+  .giftora-benefit strong {
+    font-size: 0.64rem;
+  }
+
+  .giftora-benefit small {
+    font-size: 0.58rem;
+  }
+
+  .giftora-home-section {
+    padding: 2.8rem 0;
+  }
+
+  .giftora-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .giftora-section-heading h2,
+  .giftora-box-feature__content h2,
+  .giftora-story__content h2,
+  .giftora-finder__intro h2 {
+    font-size: clamp(2rem, 9vw, 2.55rem);
+  }
+
+  .giftora-categories__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .giftora-category-card > img {
+    aspect-ratio: 1 / 0.9;
+  }
+
+  .giftora-category-card__title {
+    min-height: 40px;
+    padding: 0.5rem;
+    font-size: 0.62rem;
   }
 
   .giftora-featured__grid {
-    grid-template-columns: 1fr;
+    gap: 0.7rem;
   }
 
-  .giftora-finder__card {
-    padding: 2rem 1.25rem;
+  .giftora-featured__grid .giftora-card__body {
+    padding: 0.65rem;
+  }
+
+  .giftora-featured__grid .giftora-card__title {
+    font-size: 0.95rem;
+  }
+
+  .giftora-featured__grid .giftora-card__desc {
+    display: none;
+  }
+
+  .giftora-featured__grid .giftora-card__footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .giftora-featured__grid .giftora-card__btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .giftora-box-feature__image,
+  .giftora-box-feature__image img {
+    min-height: 270px;
+  }
+
+  .giftora-box-feature__content,
+  .giftora-story__content {
+    padding: 2.2rem 1.25rem;
+  }
+
+  .giftora-box-feature__steps {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .giftora-occasions__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .giftora-story__image,
+  .giftora-story__image img {
+    min-height: 250px;
+  }
+
+  .giftora-finder {
+    padding: 2.8rem 0;
   }
 
   .giftora-finder__form {
     grid-template-columns: 1fr;
   }
 
-  .giftora-finder__btn-wrap {
-    grid-column: span 1;
+  .giftora-finder__form > .giftora-btn {
+    width: 100%;
+    justify-self: stretch;
   }
 
-  .giftora-cta__card {
-    padding: 2.75rem 1.75rem;
+  .giftora-finder__result {
+    grid-template-columns: 76px minmax(0, 1fr);
+    align-items: start;
+    gap: 0.75rem;
+  }
+
+  .giftora-finder__result > img {
+    width: 76px;
+    height: 76px;
+  }
+
+  .giftora-finder__result-copy h3 {
+    font-size: 1.1rem;
+  }
+
+  .giftora-finder__result-copy p {
+    display: none;
+  }
+
+  .giftora-finder__result-actions {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .giftora-finder__result-actions button {
+    flex: 1;
+  }
+}
+
+/* Background image with text on top */
+.giftora-finder__image-background {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.giftora-finder__image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(
+    90deg,
+    rgba(35, 20, 14, 0.55),
+    rgba(35, 20, 14, 0.15)
+  );
+  text-align: center;
+}
+
+.giftora-finder__image-overlay span {
+  color: #ffffff;
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 700;
+  line-height: 1.3;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 600px) {
+  .giftora-finder__image-background {
+    min-height: 170px;
   }
 }

@@ -1,66 +1,95 @@
 /* ==========================================================================
-   GIFTORA AI — GLOBAL DESIGN SYSTEM & FOUNDATION
+   GIFTORA AI — LUXURY GIFTING DESIGN SYSTEM & FOUNDATION
+   Color Palette:
+   - Deep Chocolate Brown: #3B2118
+   - Rich Dark Brown:      #281711
+   - Warm Cream:           #F8F1E7
+   - Soft Ivory:           #FFFCF7
+   - Champagne Gold:       #C8A56A
+   - Muted Beige:          #E9DCCB
+   - Elegant Dark Text:    #38261F
    ========================================================================== */
 
 :root {
-  /* Brand Color Palette */
-  --primary: #e85d75;
-  --primary-hover: #d9455f;
-  --primary-light: #fdecef;
-  --primary-soft: rgba(232, 93, 117, 0.12);
+  /* Luxury Brand Color System */
+  --color-chocolate: #3B2118;
+  --color-dark-brown: #281711;
+  --color-cream: #F8F1E7;
+  --color-ivory: #FFFCF7;
+  --color-gold: #C8A56A;
+  --color-gold-hover: #B69256;
+  --color-gold-light: #F6EEDB;
+  --color-beige: #E9DCCB;
+  --color-beige-light: #F2E8DC;
+  --color-text-dark: #38261F;
+  --color-text-muted: #7A665D;
+  --color-text-subtle: #A39188;
 
-  --secondary: #1a1a2e;
-  --secondary-light: #282845;
-  --secondary-muted: #434360;
+  /* Semantic Theme Mappings */
+  --primary: #3B2118;
+  --primary-hover: #281711;
+  --primary-light: #F8F1E7;
+  --primary-soft: rgba(59, 33, 24, 0.08);
 
-  --accent: #f4a261;
-  --accent-hover: #e76f51;
-  --accent-light: #fdf3e7;
+  --secondary: #281711;
+  --secondary-light: #3B2118;
+  --secondary-muted: #7A665D;
 
-  --background: #fdf8f5;
-  --surface: #ffffff;
-  --surface-raised: #ffffff;
-  
-  --text: #2d2d44;
-  --text-muted: #8a8a9e;
-  --border: #efe6e1;
-  --border-light: #f7f1ee;
-  
-  --danger: #e63946;
-  --danger-light: #ffebee;
-  --success: #2a9d8f;
-  --success-light: #e8f5f3;
+  --accent: #C8A56A;
+  --accent-hover: #B69256;
+  --accent-light: #F6EEDB;
+  --accent-soft: rgba(200, 165, 106, 0.14);
+
+  --background: #F8F1E7;
+  --surface: #FFFCF7;
+  --surface-raised: #FFFFFF;
+  --surface-contrast: #281711;
+
+  --text: #38261F;
+  --text-muted: #7A665D;
+  --text-inverted: #F8F1E7;
+
+  --border: #E9DCCB;
+  --border-light: #F2E8DC;
+  --border-dark: #3B2118;
+  --border-gold: rgba(200, 165, 106, 0.45);
+
+  --danger: #9E3B3B;
+  --danger-light: #FDF2F2;
+  --success: #4A6B53;
+  --success-light: #F1F6F3;
 
   /* Typography */
-  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-serif-sub: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Border Radii */
-  --radius-xs: 6px;
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 22px;
-  --radius-xl: 28px;
+  /* Restrained Luxury Radii (editorial & refined, not bubbly) */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(26, 26, 46, 0.04);
-  --shadow-md: 0 8px 24px rgba(26, 26, 46, 0.07);
-  --shadow-lg: 0 16px 40px rgba(26, 26, 46, 0.10);
-  --shadow-xl: 0 24px 60px rgba(26, 26, 46, 0.14);
-  --shadow-primary: 0 8px 24px rgba(232, 93, 117, 0.32);
-  --shadow-accent: 0 8px 24px rgba(244, 162, 97, 0.35);
+  /* Subtle, Soft Shadows */
+  --shadow-xs: 0 1px 3px rgba(40, 23, 17, 0.04);
+  --shadow-sm: 0 2px 8px rgba(40, 23, 17, 0.05);
+  --shadow-md: 0 6px 20px rgba(40, 23, 17, 0.07);
+  --shadow-lg: 0 14px 36px rgba(40, 23, 17, 0.09);
+  --shadow-xl: 0 20px 48px rgba(40, 23, 17, 0.12);
+  --shadow-gold: 0 6px 20px rgba(200, 165, 106, 0.25);
 
   /* Transitions */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 160ms cubic-bezier(0.2, 0, 0, 1);
+  --transition-normal: 260ms cubic-bezier(0.2, 0, 0, 1);
+  --transition-slow: 400ms cubic-bezier(0.2, 0, 0, 1);
 
-  /* Glassmorphism */
-  --glass-bg: rgba(253, 248, 245, 0.88);
-  --glass-border: rgba(239, 230, 225, 0.75);
+  /* Glassmorphism / Frosted */
+  --glass-bg: rgba(255, 252, 247, 0.92);
+  --glass-border: rgba(233, 220, 203, 0.85);
 
-  /* Maximum widths */
+  /* Container */
   --container-max: 1240px;
 }
 
@@ -98,22 +127,32 @@ body {
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  color: var(--secondary);
-  font-weight: 600;
-  line-height: 1.25;
+  color: var(--color-chocolate);
+  font-weight: 500;
+  line-height: 1.2;
   letter-spacing: -0.01em;
 }
 
 h1 {
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
 }
 
 h3 {
-  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 500;
+}
+
+h4 {
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-weight: 500;
 }
 
 p {
@@ -164,31 +203,61 @@ ul, ol {
   padding-right: 1.5rem;
 }
 
+@media (min-width: 768px) {
+  .app-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 .main-content {
   flex: 1 0 auto;
 }
 
-/* Section Eyebrow (Small uppercase rose label above h2) */
+/* Section Eyebrow (Luxury Champagne Gold Label) */
 .section-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.16em;
+  color: var(--color-gold);
+  margin-bottom: 0.65rem;
 }
 
 .section-eyebrow svg {
-  width: 14px;
-  height: 14px;
-  color: var(--accent);
+  width: 13px;
+  height: 13px;
+  color: var(--color-gold);
 }
 
-/* Global Keyframe Micro-Animations */
+/* Luxury Text Highlights */
+.text-highlight-gold {
+  color: var(--color-gold);
+  font-style: italic;
+  font-family: var(--font-heading);
+}
+
+.text-highlight-rose {
+  color: var(--color-chocolate);
+  font-style: italic;
+  font-family: var(--font-heading);
+}
+
+/* Subtle Luxury Animations */
 @keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floatSlow {
   0%, 100% {
     transform: translateY(0px);
   }
@@ -197,38 +266,14 @@ ul, ol {
   }
 }
 
-@keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-12px) rotate(1.5deg);
-  }
-}
-
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes pulseRing {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(232, 93, 117, 0.6);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 16px rgba(232, 93, 117, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(232, 93, 117, 0);
   }
 }
 
@@ -238,16 +283,15 @@ ul, ol {
   }
 }
 
-@keyframes pulse {
+@keyframes pulseSlow {
   0%, 100% {
     opacity: 1;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.65;
   }
 }
 
-/* Utility Animation Classes */
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
@@ -257,28 +301,28 @@ ul, ol {
 }
 
 .animate-fade-up {
-  animation: fadeUp 0.5s ease-out forwards;
+  animation: fadeUp 0.4s cubic-bezier(0.2, 0, 0, 1) forwards;
 }
 
 .animate-spin {
   animation: spin 1s linear infinite;
 }
 
-/* Custom Scrollbar */
+/* Luxury Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: var(--color-cream);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d8cbce;
+  background: var(--color-beige);
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: var(--color-gold);
 }

@@ -100,7 +100,7 @@ export function Cart() {
       <div className="giftora-cart-header">
         <div>
           <div className="section-eyebrow">Checkout Review</div>
-          <h1>Shopping Bag ({count} {count === 1 ? 'item' : 'items'})</h1>
+          <h1 class="shopping-title"> <ShoppingBag size={34} />Shopping Bag ({count} {count === 1 ? 'item' : 'items'})</h1>
         </div>
         <button
           type="button"

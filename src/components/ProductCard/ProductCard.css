@@ -1,6 +1,10 @@
+/* ==========================================================================
+   PRODUCT CARD — LUXURY EDITORIAL STYLES
+   ========================================================================== */
+
 .giftora-card {
   background-color: var(--surface);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   overflow: hidden;
   display: flex;
@@ -10,17 +14,17 @@
 }
 
 .giftora-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(232, 93, 117, 0.3);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-gold);
 }
 
-/* Image Wrap */
+/* Image Container */
 .giftora-card__image-wrap {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  background-color: #f7f3f0;
+  background-color: var(--color-cream);
   overflow: hidden;
   display: block;
 }
@@ -33,52 +37,54 @@
 }
 
 .giftora-card:hover .giftora-card__image {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 /* Badges */
 .giftora-card__badge {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  font-size: 0.72rem;
-  font-weight: 700;
+  top: 10px;
+  left: 10px;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  font-size: 0.68rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   z-index: 2;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-xs);
 }
 
 .giftora-card__badge--bestseller {
-  background: linear-gradient(135deg, var(--accent) 0%, #e76f51 100%);
-  color: #ffffff;
+  background-color: var(--color-chocolate);
+  color: var(--color-cream);
+  border: 1px solid var(--border-gold);
 }
 
 .giftora-card__badge--new {
-  background: linear-gradient(135deg, var(--primary) 0%, #d9455f 100%);
-  color: #ffffff;
+  background-color: var(--color-gold);
+  color: var(--color-dark-brown);
+  border: 1px solid rgba(40, 23, 17, 0.1);
 }
 
 /* Quick Add Overlay */
 .giftora-card__quick-add {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
-  right: 12px;
-  padding: 0.65rem;
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  color: var(--secondary);
-  border-radius: var(--radius-sm);
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  padding: 0.6rem;
+  background-color: var(--color-dark-brown);
+  color: var(--color-cream);
+  border-radius: var(--radius-xs);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(26, 26, 46, 0.12);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 12px rgba(40, 23, 17, 0.2);
   transform: translateY(120%);
   opacity: 0;
   transition: all var(--transition-normal);
@@ -91,18 +97,18 @@
 }
 
 .giftora-card__quick-add:hover {
-  background-color: var(--primary);
-  color: #ffffff;
+  background-color: var(--color-chocolate);
+  color: var(--color-gold);
 }
 
 .giftora-card__quick-add--added {
   background-color: var(--success);
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 /* Card Body */
 .giftora-card__body {
-  padding: 1.25rem;
+  padding: 1.15rem;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -112,54 +118,56 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.4rem;
 }
 
 .giftora-card__category {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  color: var(--color-gold);
 }
 
 .giftora-card__rating {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  color: var(--secondary);
+  color: var(--color-text-dark);
 }
 
 .giftora-card__star-icon {
-  color: #f4a261;
-  fill: #f4a261;
+  color: var(--color-gold);
+  fill: var(--color-gold);
 }
 
 /* Title */
 .giftora-card__title {
-  font-size: 1.05rem;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.25;
   margin-bottom: 0.4rem;
-  color: var(--secondary);
+  color: var(--color-chocolate);
 }
 
 .giftora-card__title a {
   color: inherit;
+  transition: color var(--transition-fast);
 }
 
 .giftora-card__title a:hover {
-  color: var(--primary);
+  color: var(--color-gold);
 }
 
 /* Description */
 .giftora-card__desc {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.45;
-  margin-bottom: 1.25rem;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   line-clamp: 2;
@@ -168,52 +176,55 @@
   flex: 1;
 }
 
-/* Footer & Buttons */
+/* Footer & Actions */
 .giftora-card__footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 0.75rem;
-  border-top: 1px dashed var(--border);
+  border-top: 1px solid var(--border-light);
   margin-top: auto;
 }
 
 .giftora-card__price {
   font-family: var(--font-body);
-  font-weight: 700;
-  color: var(--secondary);
-  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-chocolate);
+  font-size: 1.15rem;
   display: flex;
   align-items: baseline;
 }
 
 .giftora-card__currency {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--primary);
-  margin-right: 1px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-gold);
+  margin-right: 2px;
 }
 
 .giftora-card__btn {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.5rem 0.95rem;
-  background-color: var(--primary-light);
-  color: var(--primary);
-  font-size: 0.82rem;
-  font-weight: 600;
-  border-radius: var(--radius-full);
+  padding: 0.45rem 0.85rem;
+  background-color: var(--color-cream);
+  color: var(--color-chocolate);
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: var(--radius-xs);
   transition: all var(--transition-fast);
 }
 
 .giftora-card__btn:hover {
-  background-color: var(--primary);
-  color: #ffffff;
+  background-color: var(--color-chocolate);
+  color: var(--color-cream);
+  border-color: var(--color-chocolate);
   transform: translateY(-1px);
 }
 
 .giftora-card__btn--added {
   background-color: var(--success-light);
   color: var(--success);
+  border-color: var(--success);
 }

@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Search, SlidersHorizontal, PackageSearch, X } from 'lucide-react';
 import { products, categories } from '../../data/products';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
@@ -9,8 +10,12 @@ import './Shop.css';
 
 export function Shop() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchParams, setSearchParams] = useSearchParams();
   const [sortBy, setSortBy] = useState('featured');
+  const categoryParam = searchParams.get('category');
+  const selectedCategory = categories.some((category) => category.id === categoryParam)
+    ? categoryParam
+    : 'all';
 
   // Debounce search query by 250ms
   const debouncedSearch = useDebounce(searchQuery, 250);
@@ -52,7 +57,7 @@ export function Shop() {
 
   const handleClearFilters = () => {
     setSearchQuery('');
-    setSelectedCategory('all');
+    setSearchParams({});
     setSortBy('featured');
   };
 
@@ -121,7 +126,9 @@ export function Shop() {
             <CategoryPills
               categories={categories}
               activeCategory={selectedCategory}
-              onSelect={setSelectedCategory}
+              onSelect={(category) =>
+                setSearchParams(category === 'all' ? {} : { category })
+              }
             />
             <span className="giftora-shop__count-badge">
               Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'gift' : 'gifts'}

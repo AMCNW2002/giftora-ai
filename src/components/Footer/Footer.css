@@ -1,15 +1,19 @@
+/* ==========================================================================
+   FOOTER — LUXURY GIFTING STYLING
+   ========================================================================== */
+
 .giftora-footer {
-  background-color: var(--secondary);
-  color: #c9c9dc;
-  margin-top: 4rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: var(--color-dark-brown);
+  color: #C7B5A7;
+  margin-top: 0;
+  border-top: 1px solid rgba(200, 165, 106, 0.25);
 }
 
-/* Ribbon */
+/* Top Value Ribbon */
 .giftora-footer__ribbon {
-  background: rgba(255, 255, 255, 0.03);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 1.5rem 0;
+  background-color: #21120D;
+  border-bottom: 1px solid rgba(200, 165, 106, 0.15);
+  padding: 1.6rem 0;
 }
 
 .giftora-footer__ribbon-inner {
@@ -17,37 +21,39 @@
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 .giftora-footer__ribbon-item {
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  color: #ffffff;
+  color: var(--color-cream);
 }
 
 .giftora-footer__ribbon-item svg {
-  color: var(--accent);
+  color: var(--color-gold);
   flex-shrink: 0;
 }
 
 .giftora-footer__ribbon-item strong {
   display: block;
-  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--color-cream);
+  letter-spacing: 0.02em;
 }
 
 .giftora-footer__ribbon-item span {
-  font-size: 0.8rem;
-  color: #a4a4be;
+  font-size: 0.78rem;
+  color: #B5A192;
 }
 
-/* Main */
+/* Main Content */
 .giftora-footer__main {
-  padding-top: 3.5rem;
-  padding-bottom: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 2.25rem;
 }
 
 .giftora-footer__grid {
@@ -65,30 +71,31 @@
 .giftora-footer__logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.65rem;
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 1rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-cream);
+  margin-bottom: 1.1rem;
 }
 
 .giftora-footer__logo-icon {
   width: 32px;
   height: 32px;
-  border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, var(--primary) 0%, #db4863 100%);
+  border-radius: var(--radius-xs);
+  background-color: var(--color-chocolate);
+  border: 1px solid var(--border-gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: var(--color-gold);
 }
 
 .giftora-footer__about-text {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   line-height: 1.65;
-  color: #a3a3bd;
-  margin-bottom: 1.5rem;
+  color: #B5A192;
+  margin-bottom: 1.6rem;
 }
 
 .giftora-footer__socials {
@@ -97,32 +104,36 @@
 }
 
 .giftora-footer__social-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.08);
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-xs);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(200, 165, 106, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--color-cream);
   font-size: 0.75rem;
-  font-weight: 700;
-  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   transition: all var(--transition-fast);
 }
 
 .giftora-footer__social-btn:hover {
-  background: var(--primary);
+  background-color: var(--color-gold);
+  color: var(--color-dark-brown);
+  border-color: var(--color-gold);
   transform: translateY(-2px);
 }
 
-/* Column titles */
+/* Link Columns */
 .giftora-footer__col-title {
-  color: #ffffff;
-  font-size: 1.05rem;
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
   font-weight: 600;
+  color: var(--color-cream);
   margin-bottom: 1.25rem;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
 }
 
 .giftora-footer__links {
@@ -132,27 +143,28 @@
 }
 
 .giftora-footer__links a {
-  font-size: 0.9rem;
-  color: #a3a3bd;
+  font-size: 0.86rem;
+  color: #B5A192;
   transition: all var(--transition-fast);
 }
 
 .giftora-footer__links a:hover {
-  color: var(--accent);
-  padding-left: 4px;
+  color: var(--color-gold);
+  transform: translateX(3px);
+  display: inline-block;
 }
 
-/* Bottom */
+/* Bottom Bar */
 .giftora-footer__bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 1.75rem;
+  padding-top: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-  font-size: 0.85rem;
-  color: #8484a0;
+  font-size: 0.8rem;
+  color: #9E8A7D;
 }
 
 .giftora-footer__bottom-links {
@@ -162,29 +174,30 @@
 }
 
 .giftora-footer__bottom-links a:hover {
-  color: #ffffff;
+  color: var(--color-gold);
 }
 
 /* Responsive */
-@media (max-width: 992px) {
+@media (max-width: 900px) {
   .giftora-footer__grid {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
+  .giftora-footer__brand-col {
+    grid-column: span 2;
+    padding-right: 0;
+  }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 580px) {
   .giftora-footer__grid {
     grid-template-columns: 1fr;
   }
-
-  .giftora-footer__ribbon-inner {
-    flex-direction: column;
-    align-items: flex-start;
+  .giftora-footer__brand-col {
+    grid-column: span 1;
   }
-
   .giftora-footer__bottom {
     flex-direction: column;
-    align-items: flex-start;
+    text-align: center;
   }
 }

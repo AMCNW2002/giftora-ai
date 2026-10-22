@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GIFTORA AI — GIFT BOX BUILDER PAGE STYLES
+   GIFT BOX BUILDER — LUXURY EDITORIAL STYLES
    ========================================================================== */
 
 .giftora-builder {
@@ -15,12 +15,14 @@
 }
 
 .giftora-builder__header h1 {
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
   margin-bottom: 0.75rem;
+  color: var(--color-chocolate);
 }
 
 .giftora-builder__header p {
-  color: var(--text-muted);
+  color: var(--color-text-muted);
   font-size: 1.05rem;
   line-height: 1.6;
 }
@@ -36,28 +38,30 @@
 /* Common Card */
 .giftora-builder__card {
   background-color: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   padding: 2rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-xs);
   margin-bottom: 2rem;
 }
 
 .giftora-builder__card-title {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .giftora-builder__card-icon {
-  color: var(--primary);
+  color: var(--color-gold);
 }
 
 .giftora-builder__card-title h3 {
-  font-size: 1.25rem;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--color-chocolate);
 }
 
 /* AI Form */
@@ -74,28 +78,29 @@
 }
 
 .giftora-builder__field label {
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--secondary);
+  letter-spacing: 0.08em;
+  color: var(--color-chocolate);
 }
 
 .giftora-builder__field select,
 .giftora-builder__field input {
-  height: 46px;
-  padding: 0 1rem;
-  border-radius: var(--radius-sm);
-  border: 1.5px solid var(--border);
-  background-color: var(--background);
-  font-size: 0.92rem;
-  color: var(--secondary);
+  height: 44px;
+  padding: 0 0.9rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border);
+  background-color: var(--color-cream);
+  font-size: 0.88rem;
+  color: var(--color-text-dark);
   transition: border-color var(--transition-fast);
 }
 
 .giftora-builder__field select:focus,
 .giftora-builder__field input:focus {
-  border-color: var(--primary);
+  border-color: var(--color-gold);
+  background-color: #FFFFFF;
   outline: none;
 }
 
@@ -108,9 +113,9 @@
 .currency-prefix {
   position: absolute;
   left: 14px;
-  font-weight: 700;
-  color: var(--primary);
-  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  font-size: 0.95rem;
 }
 
 .giftora-builder__budget-input-wrap input {
@@ -126,10 +131,10 @@
 /* "Add more to your box" Shelf */
 .giftora-builder__shelf {
   background-color: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   padding: 1.75rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-xs);
 }
 
 .giftora-builder__shelf-header {
@@ -140,13 +145,17 @@
 }
 
 .giftora-builder__shelf-header h4 {
-  font-size: 1.05rem;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-chocolate);
 }
 
 .giftora-builder__shelf-hint {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gold);
 }
 
 .giftora-builder__shelf-grid {
@@ -159,21 +168,21 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background-color: var(--background);
+  background-color: var(--color-cream);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
   padding: 0.5rem;
   transition: all var(--transition-fast);
 }
 
 .giftora-builder__mini-card:hover {
-  border-color: var(--primary);
-  background-color: var(--surface);
+  border-color: var(--color-gold);
+  background-color: #FFFFFF;
 }
 
 .giftora-builder__mini-img {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   border-radius: var(--radius-xs);
   object-fit: cover;
   flex-shrink: 0;
@@ -185,25 +194,27 @@
 }
 
 .giftora-builder__mini-info h5 {
-  font-size: 0.82rem;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 2px;
+  color: var(--color-chocolate);
 }
 
 .giftora-builder__mini-price {
   font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--primary);
+  font-weight: 600;
+  color: var(--color-chocolate);
 }
 
 .giftora-builder__mini-add {
-  width: 30px;
-  height: 30px;
-  border-radius: var(--radius-full);
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-xs);
   background-color: var(--surface);
-  color: var(--secondary);
+  color: var(--color-chocolate);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -213,19 +224,19 @@
 }
 
 .giftora-builder__mini-add:hover {
-  background-color: var(--primary);
-  color: #ffffff;
-  border-color: var(--primary);
+  background-color: var(--color-chocolate);
+  color: var(--color-cream);
+  border-color: var(--color-chocolate);
 }
 
 .giftora-builder__shelf-empty {
-  font-size: 0.88rem;
-  color: var(--text-muted);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
   text-align: center;
   padding: 1.5rem;
   line-height: 1.5;
-  background-color: var(--background);
-  border-radius: var(--radius-sm);
+  background-color: var(--color-cream);
+  border-radius: var(--radius-xs);
 }
 
 /* ========================================================= */
@@ -233,31 +244,31 @@
 /* ========================================================= */
 .giftora-builder__canvas {
   background-color: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   position: sticky;
   top: 92px;
 }
 
 /* Decorative Ribbon Strip */
 .giftora-builder__ribbon-strip {
-  height: 36px;
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 700;
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  letter-spacing: 0.14em;
+  box-shadow: 0 1px 4px rgba(40, 23, 17, 0.15);
   transition: background-color var(--transition-normal);
   background-image: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(0, 0, 0, 0.1) 100%
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(0, 0, 0, 0.15) 100%
   );
 }
 
@@ -273,19 +284,21 @@
 }
 
 .giftora-builder__canvas-header h2 {
-  font-size: 1.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--color-chocolate);
   margin-bottom: 2px;
 }
 
 .giftora-builder__item-count {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
 }
 
 .giftora-builder__clear-btn {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  font-size: 0.82rem;
+  color: var(--color-text-subtle);
   text-decoration: underline;
   transition: color var(--transition-fast);
 }
@@ -308,17 +321,18 @@
 .giftora-builder__empty-canvas {
   text-align: center;
   padding: 3rem 1.5rem;
-  background-color: var(--background);
-  border-radius: var(--radius-md);
+  background-color: var(--color-cream);
+  border-radius: var(--radius-xs);
   border: 1px dashed var(--border);
 }
 
 .giftora-builder__empty-icon {
-  width: 64px;
-  height: 64px;
+  width: 54px;
+  height: 54px;
   border-radius: var(--radius-full);
   background-color: var(--surface);
-  color: var(--primary);
+  color: var(--color-gold);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -326,13 +340,15 @@
 }
 
 .giftora-builder__empty-canvas h4 {
-  font-size: 1.1rem;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-chocolate);
   margin-bottom: 0.4rem;
 }
 
 .giftora-builder__empty-canvas p {
-  font-size: 0.88rem;
-  color: var(--text-muted);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
   max-width: 320px;
   margin: 0 auto;
 }
@@ -341,16 +357,16 @@
 .giftora-builder__ribbon-picker {
   margin-bottom: 1.5rem;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-light);
 }
 
 .giftora-builder__picker-label {
   display: block;
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--secondary);
+  letter-spacing: 0.08em;
+  color: var(--color-chocolate);
   margin-bottom: 0.75rem;
 }
 
@@ -360,28 +376,29 @@
 }
 
 .giftora-builder__swatch {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 4px rgba(40, 23, 17, 0.15);
   transition: transform var(--transition-fast), outline var(--transition-fast);
   cursor: pointer;
+  border: 2px solid #FFFFFF;
 }
 
 .giftora-builder__swatch:hover {
-  transform: scale(1.1);
-}
-
-.giftora-builder__swatch--selected {
-  outline: 3px solid var(--secondary);
-  outline-offset: 3px;
   transform: scale(1.08);
 }
 
-/* Calligraphy Message */
+.giftora-builder__swatch--selected {
+  outline: 2px solid var(--color-chocolate);
+  outline-offset: 2px;
+  transform: scale(1.08);
+}
+
+/* Calligraphy Message Card */
 .giftora-builder__message-wrap {
   margin-bottom: 1.75rem;
 }
@@ -394,55 +411,56 @@
 }
 
 .giftora-builder__message-header label {
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--secondary);
+  letter-spacing: 0.08em;
+  color: var(--color-chocolate);
 }
 
 .giftora-builder__char-count {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-text-subtle);
 }
 
 .giftora-builder__char-count.text-danger {
   color: var(--danger);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .giftora-builder__message-wrap textarea {
   width: 100%;
   padding: 0.85rem 1rem;
-  background-color: var(--background);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  color: var(--secondary);
+  background-color: var(--color-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  font-size: 0.88rem;
+  color: var(--color-text-dark);
   resize: vertical;
   line-height: 1.5;
   transition: border-color var(--transition-fast);
 }
 
 .giftora-builder__message-wrap textarea:focus {
-  border-color: var(--primary);
+  border-color: var(--color-gold);
+  background-color: #FFFFFF;
   outline: none;
 }
 
 /* Success Toast */
 .giftora-builder__toast {
   background-color: var(--success-light);
-  border: 1px solid rgba(42, 157, 143, 0.3);
+  border: 1px solid rgba(74, 107, 83, 0.3);
   color: var(--success);
   padding: 0.85rem 1rem;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
   margin-bottom: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.88rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .giftora-builder__toast-content {
@@ -454,6 +472,7 @@
 .giftora-builder__toast-link {
   color: var(--success);
   text-decoration: underline;
+  font-weight: 600;
 }
 
 /* Add Cart Action */
@@ -468,12 +487,12 @@
 }
 
 .giftora-builder__warning-text {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--danger);
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.4;
 }
 

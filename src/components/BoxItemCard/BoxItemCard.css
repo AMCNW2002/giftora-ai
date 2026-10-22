@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GIFTORA AI — BOX ITEM CARD STYLES
+   BOX ITEM CARD — LUXURY EDITORIAL STYLES
    ========================================================================== */
 
 .giftora-box-item {
@@ -9,22 +9,22 @@
   padding: 0.85rem 1rem;
   background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
   transition: all var(--transition-fast);
 }
 
 .giftora-box-item:hover {
-  border-color: rgba(232, 93, 117, 0.3);
+  border-color: var(--color-gold);
   box-shadow: var(--shadow-sm);
 }
 
 .giftora-box-item__img {
-  width: 58px;
-  height: 58px;
+  width: 54px;
+  height: 54px;
   border-radius: var(--radius-xs);
   object-fit: cover;
   flex-shrink: 0;
-  background-color: var(--background);
+  background-color: var(--color-cream);
 }
 
 .giftora-box-item__info {
@@ -33,18 +33,19 @@
 }
 
 .giftora-box-item__category {
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.68rem;
+  font-weight: 600;
   text-transform: uppercase;
-  color: var(--primary);
-  letter-spacing: 0.06em;
+  color: var(--color-gold);
+  letter-spacing: 0.08em;
   display: block;
 }
 
 .giftora-box-item__title {
-  font-size: 0.92rem;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
   font-weight: 600;
-  color: var(--secondary);
+  color: var(--color-chocolate);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -52,8 +53,8 @@
 }
 
 .giftora-box-item__price {
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
 }
 
 .giftora-box-item__actions {
@@ -65,45 +66,45 @@
 .giftora-box-item__qty {
   display: inline-flex;
   align-items: center;
-  background-color: var(--background);
+  background-color: var(--color-cream);
   border: 1px solid var(--border);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-xs);
   padding: 2px;
 }
 
 .giftora-box-item__qty button {
-  width: 24px;
-  height: 24px;
-  border-radius: var(--radius-full);
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-xs);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--secondary);
+  color: var(--color-chocolate);
   transition: all var(--transition-fast);
 }
 
 .giftora-box-item__qty button:hover {
   background-color: var(--surface);
-  color: var(--primary);
+  color: var(--color-dark-brown);
 }
 
 .giftora-box-item__qty span {
-  font-size: 0.82rem;
-  font-weight: 700;
-  width: 24px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: 22px;
   text-align: center;
 }
 
 .giftora-box-item__total {
   font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--secondary);
+  font-weight: 600;
+  color: var(--color-chocolate);
   min-width: 55px;
   text-align: right;
 }
 
 .giftora-box-item__remove {
-  color: var(--text-muted);
+  color: var(--color-text-subtle);
   padding: 4px;
   border-radius: var(--radius-xs);
   transition: all var(--transition-fast);

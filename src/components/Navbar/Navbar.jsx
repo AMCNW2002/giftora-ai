@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { Sparkles, ShoppingBag, User, Search, Menu, X, Gift } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import './Navbar.css';
@@ -8,12 +8,6 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { count } = useCart();
-  const location = useLocation();
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
 
   // Monitor scroll for glass shadow effect
   useEffect(() => {
@@ -31,11 +25,20 @@ export function Navbar() {
 
   return (
     <header className={`giftora-navbar ${isScrolled ? 'giftora-navbar--scrolled' : ''}`}>
+      {/* Slim Luxury Announcement Bar */}
+      <div className="giftora-navbar__announcement">
+        <div className="app-container giftora-navbar__announcement-inner">
+          <span>Complimentary express delivery on orders over $80</span>
+          <span className="giftora-navbar__announcement-sep">•</span>
+          <span>Handcrafted luxury packaging & wax seal included</span>
+        </div>
+      </div>
+
       <div className="giftora-navbar__inner app-container">
         {/* Brand Logo */}
         <Link to="/" className="giftora-navbar__brand" aria-label="Giftora AI Home">
           <div className="giftora-navbar__logo-icon">
-            <Sparkles size={20} className="giftora-navbar__sparkle" />
+            <Gift size={18} className="giftora-navbar__sparkle" />
           </div>
           <span className="giftora-navbar__logo-text">
             Giftora<span>AI</span>
@@ -61,6 +64,9 @@ export function Navbar() {
           >
             Shop
           </NavLink>
+          <Link to="/#giftora-occasions" className="giftora-navbar__link">
+            Occasions
+          </Link>
           <NavLink
             to="/gift-box"
             className={({ isActive }) =>
@@ -73,7 +79,10 @@ export function Navbar() {
             <span>Gift Box</span>
             <span className="giftora-navbar__badge-ai">AI Builder</span>
           </NavLink>
-          <a href="#about-footer" className="giftora-navbar__link">
+          <Link to="/#giftora-personalise" className="giftora-navbar__link">
+            Personalise
+          </Link>
+          <a href="/#about-footer" className="giftora-navbar__link">
             About
           </a>
         </nav>
@@ -130,7 +139,10 @@ export function Navbar() {
           isMobileMenuOpen ? 'giftora-navbar__mobile-drawer--open' : ''
         }`}
       >
-        <nav className="giftora-navbar__mobile-nav">
+        <nav
+          className="giftora-navbar__mobile-nav"
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
           <NavLink to="/" end className="giftora-navbar__mobile-link">
             Home
           </NavLink>
@@ -141,6 +153,12 @@ export function Navbar() {
             <Gift size={18} />
             <span>Build Gift Box (AI)</span>
           </NavLink>
+          <a href="/#giftora-occasions" className="giftora-navbar__mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
+            Shop by Occasion
+          </a>
+          <a href="/#giftora-personalise" className="giftora-navbar__mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
+            Personalise a Gift
+          </a>
           <NavLink to="/cart" className="giftora-navbar__mobile-link">
             Cart {count > 0 && `(${count})`}
           </NavLink>

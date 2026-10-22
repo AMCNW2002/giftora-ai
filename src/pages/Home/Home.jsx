@@ -1,27 +1,73 @@
-import React, { useState } from 'react';
+
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Sparkles,
-  Gift,
   ArrowRight,
-  Star,
-  Truck,
-  HeartHandshake,
-  ShieldCheck,
-  Search,
+  Cake,
   CheckCircle2,
-  Clock
+  ChevronLeft,
+  ChevronRight,
+  Flower2,
+  Gift,
+  Gem,
+  Heart,
+  PackageCheck,
+  PartyPopper,
+  ShieldCheck,
+  Sparkles,
+  Truck,
 } from 'lucide-react';
 import { Button } from '../../components/Button/Button';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
 import { products } from '../../data/products';
 import { useCart } from '../../context/CartContext';
+import heroImageOne from '../../assets/hero1.jpg';
+import heroImageTwo from '../../assets/hero2.avif';
+import heroImageThree from '../../assets/hero3.jpg';
+import heroImageFour from '../../assets/hero4.jpeg';
+import middleph from '../../assets/midle.jpeg';
+import bottomimg from '../../assets/bottomimg.jpeg';
 import './Home.css';
+
+const HERO_SLIDE_INTERVAL_MS = 4000;
+const heroImages = [heroImageFour, heroImageOne, heroImageTwo, heroImageThree];
+
+const giftCategories = [
+  { id: 'personalized', title: 'Personalised Gifts', imageId: 7, icon: Heart },
+  { id: 'hampers', title: 'Hampers & Gift Boxes', imageId: 3, icon: Gift },
+  { id: 'flowers', title: 'Flowers & Botanicals', imageId: 6, icon: Flower2 },
+  { id: 'jewelry', title: 'Jewellery & Keepsakes', imageId: 4, icon: Gem },
+  { id: 'tech', title: 'Thoughtful Tech', imageId: 11, icon: Sparkles },
+];
+
+const occasions = [
+  { id: 'birthday', title: 'Birthdays', imageId: 10, icon: Cake },
+  { id: 'anniversary', title: 'Anniversaries', imageId: 1, icon: Heart },
+  { id: 'wedding', title: 'Weddings', imageId: 6, icon: Flower2 },
+  { id: 'holiday', title: 'Thank You & More', imageId: 12, icon: PartyPopper },
+];
+
+const recipientCategories = {
+  partner: ['flowers', 'jewelry', 'personalized'],
+  friend: ['hampers', 'tech', 'personalized'],
+  parent: ['hampers', 'flowers', 'personalized'],
+  colleague: ['tech', 'hampers', 'personalized'],
+};
+
+const occasionCategories = {
+  birthday: ['hampers', 'personalized', 'flowers'],
+  anniversary: ['flowers', 'jewelry', 'personalized'],
+  wedding: ['flowers', 'hampers', 'jewelry'],
+  holiday: ['hampers', 'personalized', 'tech'],
+};
+
+const getGift = (id) => products.find((product) => product.id === id);
 
 export function Home() {
   const { addToCart } = useCart();
+  const finderRef = useRef(null);
 
-  // AI Gift Finder State
+  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
   const [finderRecipient, setFinderRecipient] = useState('partner');
   const [finderOccasion, setFinderOccasion] = useState('birthday');
   const [finderBudget, setFinderBudget] = useState(60);
@@ -30,214 +76,346 @@ export function Home() {
   const [aiSuggestion, setAiSuggestion] = useState(null);
   const [addedAiItem, setAddedAiItem] = useState(false);
 
-  // Filter 4 featured products
-  const featuredGifts = products.filter((p) => p.tag === 'Bestseller').slice(0, 4);
+  const featuredGifts = products
+    .filter((product) => product.tag === 'Bestseller')
+    .slice(0, 4);
 
-  // Handle AI Gift Finder Mini Form
-  const handleAIFinderSubmit = (e) => {
-    e.preventDefault();
+  const heroGift = getGift(1);
+  const boxGift = getGift(3);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setActiveHeroSlide(
+        (currentSlide) => (currentSlide + 1) % heroImages.length
+      );
+    }, HERO_SLIDE_INTERVAL_MS);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  const handleAIFinderSubmit = (event) => {
+    event.preventDefault();
+
     setIsSearchingAI(true);
     setAiSuggestion(null);
     setAddedAiItem(false);
 
-    setTimeout(() => {
-      // Find matching items within or closest to budget
-      const affinity = {
-        partner: ['flowers', 'jewelry', 'personalized'],
-        friend: ['hampers', 'tech', 'personalized'],
-        parent: ['hampers', 'flowers', 'personalized'],
-        colleague: ['tech', 'hampers', 'personalized']
-      };
-      const allowedCategories = affinity[finderRecipient] || ['personalized'];
+    window.setTimeout(() => {
+      const preferredCategories = new Set([
+        ...(recipientCategories[finderRecipient] || []),
+        ...(occasionCategories[finderOccasion] || []),
+      ]);
 
-      let candidates = products.filter(
-        (p) => allowedCategories.includes(p.category) && p.price <= Number(finderBudget) + 15
+      const interest = finderInterest.trim().toLowerCase();
+
+      const withinBudget = products.filter(
+        (product) => product.price <= Number(finderBudget) + 15
       );
 
-      if (candidates.length === 0) {
-        candidates = products.filter((p) => p.price <= Number(finderBudget) + 25);
-      }
-      if (candidates.length === 0) {
-        candidates = products;
-      }
+      const candidates = withinBudget.length ? withinBudget : [...products];
 
-      // Pick top rated candidate
-      candidates.sort((a, b) => b.rating - a.rating);
-      const match = candidates[0];
+      const rankedCandidates = [...candidates].sort((first, second) => {
+        const score = (product) => {
+          const categoryScore = preferredCategories.has(product.category)
+            ? 3
+            : 0;
 
-      setAiSuggestion(match);
+          const interestScore =
+            interest &&
+            `${product.name} ${product.description} ${product.category}`
+              .toLowerCase()
+              .includes(interest)
+              ? 5
+              : 0;
+
+          const budgetScore =
+            product.price <= Number(finderBudget) ? 2 : 0;
+
+          return (
+            categoryScore +
+            interestScore +
+            budgetScore +
+            product.rating / 10
+          );
+        };
+
+        return score(second) - score(first);
+      });
+
+      setAiSuggestion(rankedCandidates[0] || null);
       setIsSearchingAI(false);
-    }, 850);
+    }, 450);
   };
 
   const handleAddAiSuggestion = () => {
-    if (aiSuggestion) {
-      addToCart(aiSuggestion, 1);
-      setAddedAiItem(true);
-      setTimeout(() => setAddedAiItem(false), 1500);
-    }
+    if (!aiSuggestion) return;
+
+    addToCart(aiSuggestion, 1);
+    setAddedAiItem(true);
+
+    window.setTimeout(() => setAddedAiItem(false), 1500);
+  };
+
+  const chooseOccasion = (occasion) => {
+    setFinderOccasion(occasion);
+    finderRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    });
   };
 
   return (
     <div className="giftora-home">
-      {/* 1. HERO SECTION */}
       <section className="giftora-hero">
-        <div className="giftora-hero__bg-blob giftora-hero__bg-blob--1" />
-        <div className="giftora-hero__bg-blob giftora-hero__bg-blob--2" />
-
         <div className="app-container giftora-hero__grid">
-          {/* Left Text Column */}
           <div className="giftora-hero__content">
-            <div className="section-eyebrow">
-              <Sparkles size={14} /> AI-Powered Personalized Gifting
-            </div>
+            <span className="giftora-home__eyebrow">
+              Gifts for the moments that matter
+            </span>
+
             <h1 className="giftora-hero__title">
-              Thoughtful Gifts, Curated with{' '}
-              <span className="text-highlight-rose">Heart</span> &{' '}
-              <span className="text-highlight-gold">AI</span>
+              Make every gift <em>unforgettable.</em>
             </h1>
+
             <p className="giftora-hero__subtitle">
-              Say goodbye to gift guesswork. From single bespoke keepsakes to full custom gift
-              boxes tailored to their personality and your exact budget.
+              Thoughtfully chosen gifts with a personal touch. Find a little
+              something lovely for every person, milestone and moment.
             </p>
 
             <div className="giftora-hero__actions">
               <Link to="/shop">
-                <Button variant="primary" size="lg" icon={<Sparkles size={18} />}>
-                  Explore Gifts
+                <Button
+                  variant="primary"
+                  size="lg"
+                  icon={<ArrowRight size={16} />}
+                >
+                  Explore gifts
                 </Button>
               </Link>
+
               <Link to="/gift-box">
-                <Button variant="outline" size="lg" icon={<Gift size={18} />}>
-                  Build a Gift Box
+                <Button
+                  variant="outline"
+                  size="lg"
+                  icon={<Gift size={16} />}
+                >
+                  Create your gift box
                 </Button>
               </Link>
             </div>
 
-            {/* Trust Badges */}
-            <div className="giftora-hero__trust">
-              <div className="giftora-hero__trust-item">
-                <div className="giftora-hero__trust-stars">
-                  <Star size={15} fill="#F4A261" color="#F4A261" />
-                  <strong>4.9 / 5</strong>
-                </div>
-                <span>Over 12,000+ Happy Moments</span>
-              </div>
-              <div className="giftora-hero__trust-divider" />
-              <div className="giftora-hero__trust-item">
-                <Truck size={17} color="var(--primary)" />
-                <span>Express Worldwide Shipping</span>
-              </div>
-              <div className="giftora-hero__trust-divider" />
-              <div className="giftora-hero__trust-item">
-                <HeartHandshake size={17} color="var(--accent)" />
-                <span>Hand-Personalized with Care</span>
-              </div>
+            <div className="giftora-hero__note">
+              <Gift size={14} fill="currentColor" />
+              <span>
+                Beautifully considered. Thoughtfully wrapped. Ready to delight.
+              </span>
             </div>
           </div>
 
-          {/* Right Floating Visuals Column */}
-          <div className="giftora-hero__visuals">
-            <div className="giftora-hero__cards-wrap">
-              {/* Floating Card 1 */}
-              <div className="giftora-hero__floating-card giftora-hero__floating-card--1 animate-float">
+          <div className="giftora-hero__visual">
+            <div className="giftora-hero__slides" aria-label="Featured gifts">
+              {heroImages.map((image, index) => (
                 <img
-                  src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80"
-                  alt="Preserved Rose Keepsake"
+                  key={image}
+                  className={`giftora-hero__image ${
+                    activeHeroSlide === index
+                      ? 'giftora-hero__image--active'
+                      : ''
+                  }`}
+                  src={image}
+                  alt={`Giftora featured gift ${index + 1}`}
+                  aria-hidden={activeHeroSlide !== index}
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
                 />
-                <div className="giftora-hero__floating-card-info">
-                  <h4>Eternal Rose Keepsake</h4>
-                  <div className="giftora-hero__floating-card-meta">
-                    <span className="giftora-hero__floating-card-price">$42.00</span>
-                    <span className="giftora-hero__floating-card-tag">Bestseller</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Card 2 */}
-              <div className="giftora-hero__floating-card giftora-hero__floating-card--2 animate-float-slow">
-                <img
-                  src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=600&q=80"
-                  alt="Artisanal Chocolate Hamper"
-                />
-                <div className="giftora-hero__floating-card-info">
-                  <h4>Artisanal Truffle Hamper</h4>
-                  <div className="giftora-hero__floating-card-meta">
-                    <span className="giftora-hero__floating-card-price">$64.00</span>
-                    <span className="giftora-hero__floating-card-tag">Luxe Pack</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating AI Matched Badge */}
-              <div className="giftora-hero__ai-badge animate-float">
-                <div className="giftora-hero__ai-badge-icon">
-                  <Sparkles size={16} />
-                </div>
-                <div>
-                  <strong>AI Match: 98%</strong>
-                  <span>Personalized for Anniversary</span>
-                </div>
-              </div>
+              ))}
             </div>
+
+            <div className="giftora-hero__image-wash" />
+
+            <div
+              className="giftora-hero__slider-controls"
+              aria-label="Hero image controls"
+            >
+              <button
+                className="giftora-hero__slider-arrow"
+                type="button"
+                aria-label="Previous hero image"
+                onClick={() =>
+                  setActiveHeroSlide(
+                    (activeHeroSlide - 1 + heroImages.length) %
+                      heroImages.length
+                  )
+                }
+              >
+                <ChevronLeft size={17} />
+              </button>
+
+              <div className="giftora-hero__slider-dots">
+                {heroImages.map((image, index) => (
+                  <button
+                    key={image}
+                    className={`giftora-hero__slider-dot ${
+                      activeHeroSlide === index
+                        ? 'giftora-hero__slider-dot--active'
+                        : ''
+                    }`}
+                    type="button"
+                    aria-label={`Show hero image ${index + 1}`}
+                    aria-current={
+                      activeHeroSlide === index ? 'true' : undefined
+                    }
+                    onClick={() => setActiveHeroSlide(index)}
+                  />
+                ))}
+              </div>
+
+              <button
+                className="giftora-hero__slider-arrow"
+                type="button"
+                aria-label="Next hero image"
+                onClick={() =>
+                  setActiveHeroSlide(
+                    (activeHeroSlide + 1) % heroImages.length
+                  )
+                }
+              >
+                <ChevronRight size={17} />
+              </button>
+            </div>
+
+            <div className="giftora-hero__caption">
+              <span>A little something lovely</span>
+              <strong>Made to make them smile</strong>
+            </div>
+
+            <Link
+              to={`/product/${heroGift.id}`}
+              className="giftora-hero__product-note"
+            >
+              <span className="giftora-hero__product-note-icon">
+                <Gift size={16} />
+              </span>
+
+              <span>
+                <small>A thoughtful favourite</small>
+                <strong>{heroGift.name}</strong>
+              </span>
+
+              <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 2. VALUE PROPS */}
-      <section className="giftora-values">
-        <div className="app-container">
-          <div className="giftora-values__grid">
-            <div className="giftora-values__card">
-              <div className="giftora-values__icon giftora-values__icon--rose">
-                <Truck size={26} />
-              </div>
-              <h3>Worldwide Express</h3>
-              <p>
-                Fast, insured delivery straight to their doorstep with real-time tracking and free
-                shipping over $80.
-              </p>
-            </div>
-
-            <div className="giftora-values__card">
-              <div className="giftora-values__icon giftora-values__icon--gold">
-                <Gift size={26} />
-              </div>
-              <h3>Hand-Personalized</h3>
-              <p>
-                Custom calligraphy gift notes, wax seal stamping, and velvet ribbons hand-tied by
-                our artisan team.
-              </p>
-            </div>
-
-            <div className="giftora-values__card">
-              <div className="giftora-values__icon giftora-values__icon--navy">
-                <ShieldCheck size={26} />
-              </div>
-              <h3>Secure Checkout</h3>
-              <p>
-                End-to-end encrypted payments with a 100% Delight Guarantee on every single
-                curated gift.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. FEATURED PRODUCTS */}
-      <section className="giftora-featured">
-        <div className="app-container">
-          <div className="giftora-section-header">
+      <section className="giftora-benefits" aria-label="Giftora services">
+        <div className="app-container giftora-benefits__grid">
+          <div className="giftora-benefit">
+            <span><Heart size={18} /></span>
             <div>
-              <div className="section-eyebrow">
-                <Sparkles size={14} /> Most Loved Curations
-              </div>
-              <h2>Featured Gift Inspirations</h2>
+              <strong>Thoughtful picks</strong>
+              <small>Chosen with care</small>
             </div>
-            <Link to="/shop">
-              <Button variant="outline" size="md" icon={<ArrowRight size={16} />}>
-                View all gifts
-              </Button>
+          </div>
+
+          <div className="giftora-benefit">
+            <span><Sparkles size={18} /></span>
+            <div>
+              <strong>Make it personal</strong>
+              <small>Add a heartfelt touch</small>
+            </div>
+          </div>
+
+          <div className="giftora-benefit">
+            <span><PackageCheck size={18} /></span>
+            <div>
+              <strong>Gift-ready details</strong>
+              <small>Beautifully presented</small>
+            </div>
+          </div>
+
+          <div className="giftora-benefit">
+            <span><Truck size={18} /></span>
+            <div>
+              <strong>Worldwide delivery</strong>
+              <small>Free over $80</small>
+            </div>
+          </div>
+
+          <div className="giftora-benefit">
+            <span><ShieldCheck size={18} /></span>
+            <div>
+              <strong>Shop with confidence</strong>
+              <small>Care at every step</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="giftora-home-section giftora-categories"
+        id="giftora-categories"
+      >
+        <div className="app-container">
+          <div className="giftora-section-heading">
+            <div>
+              <span className="giftora-home__eyebrow">
+                A little inspiration
+              </span>
+              <h2>Gifts worth giving</h2>
+            </div>
+
+            <Link to="/shop" className="giftora-text-link">
+              View all gifts <ArrowRight size={15} />
+            </Link>
+          </div>
+
+          <div className="giftora-categories__grid">
+            {giftCategories.map((category) => {
+              const categoryGift = getGift(category.imageId);
+              const CategoryIcon = category.icon;
+
+              return (
+                <Link
+                  className="giftora-category-card"
+                  key={category.id}
+                  to={`/shop?category=${category.id}`}
+                >
+                  <img
+                    src={categoryGift.image}
+                    alt=""
+                    loading="lazy"
+                  />
+
+                  <span className="giftora-category-card__icon">
+                    <CategoryIcon size={15} />
+                  </span>
+
+                  <span className="giftora-category-card__title">
+                    {category.title}
+                    <ArrowRight size={14} />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="giftora-home-section giftora-bestsellers"
+        id="giftora-bestsellers"
+      >
+        <div className="app-container">
+          <div className="giftora-section-heading">
+            <div>
+              <span className="giftora-home__eyebrow">
+                Our most loved
+              </span>
+              <h2>Bestselling gifts</h2>
+            </div>
+
+            <Link to="/shop" className="giftora-text-link">
+              Shop all products <ArrowRight size={15} />
             </Link>
           </div>
 
@@ -249,28 +427,188 @@ export function Home() {
         </div>
       </section>
 
-      {/* 4. AI GIFT FINDER MINI-PANEL */}
-      <section className="giftora-finder">
+      <section
+        className="giftora-box-feature"
+        id="giftora-personalise"
+      >
+        <div className="giftora-box-feature__image">
+          <img
+            src={boxGift.image}
+            alt={boxGift.name}
+            loading="lazy"
+          />
+
+          <span className="giftora-box-feature__image-caption">
+            <Sparkles size={14} /> A gift that feels like you
+          </span>
+        </div>
+
+        <div className="giftora-box-feature__content">
+          <span className="giftora-home__eyebrow">
+            The personal touch
+          </span>
+
+          <h2>A gift box as unique as they are.</h2>
+
+          <p>
+            Bring their favourite things together in one lovely box. Choose the
+            gifts, set your budget and add a personal message.
+          </p>
+
+          <ul className="giftora-box-feature__steps">
+            <li>
+              <span><Gift size={15} /></span>
+              Choose gifts they will love
+            </li>
+            <li>
+              <span><Heart size={15} /></span>
+              Add a personal note
+            </li>
+            <li>
+              <span><PackageCheck size={15} /></span>
+              Finish with a thoughtful presentation
+            </li>
+          </ul>
+
+          <Link to="/gift-box">
+            <Button
+              variant="primary"
+              size="lg"
+              icon={<ArrowRight size={16} />}
+            >
+              Build your own box
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      <section
+        className="giftora-home-section giftora-occasions"
+        id="giftora-occasions"
+      >
         <div className="app-container">
-          <div className="giftora-finder__card">
-            <div className="giftora-finder__header">
-              <div className="section-eyebrow">
-                <Sparkles size={14} /> Smart Recommendations
-              </div>
-              <h2>AI Gift Matcher</h2>
-              <p>
-                Need a quick match without browsing? Tell our AI who you are celebrating, and get
-                an instant bespoke gift recommendation.
-              </p>
+          <div className="giftora-section-heading">
+            <div>
+              <span className="giftora-home__eyebrow">
+                Shop by occasion
+              </span>
+              <h2>Gifts for every special moment</h2>
             </div>
 
-            <form onSubmit={handleAIFinderSubmit} className="giftora-finder__form">
+            <Link to="/shop" className="giftora-text-link">
+              Explore the collection <ArrowRight size={15} />
+            </Link>
+          </div>
+
+          <div className="giftora-occasions__grid">
+            {occasions.map((occasion) => {
+              const occasionGift = getGift(occasion.imageId);
+              const OccasionIcon = occasion.icon;
+
+              return (
+                <button
+                  className="giftora-occasion-card"
+                  key={occasion.id}
+                  type="button"
+                  onClick={() => chooseOccasion(occasion.id)}
+                  aria-label={`Find a gift for ${occasion.title}`}
+                >
+                  <span className="giftora-occasion-card__image">
+                    <img
+                      src={occasionGift.image}
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span><OccasionIcon size={17} /></span>
+                  </span>
+
+                  <span className="giftora-occasion-card__title">
+                    {occasion.title}
+                    <ArrowRight size={14} />
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="giftora-story">
+        <div className="giftora-story__image">
+          <img
+            src={middleph}
+            alt="A carefully chosen gift, ready to be shared"
+            loading="lazy"
+          />
+        </div>
+
+        <div className="giftora-story__content">
+          <span className="giftora-home__eyebrow">
+            A more personal way to give
+          </span>
+
+          <h2>It’s not just a gift. It’s how you make them feel.</h2>
+
+          <p>
+            Browse a considered collection, find a little inspiration or create
+            a gift box that tells your story. Giftora makes the thoughtful
+            part feel simple.
+          </p>
+
+          <Link to="/shop" className="giftora-text-link">
+            Find something meaningful <ArrowRight size={15} />
+          </Link>
+
+          <span
+            className="giftora-story__decoration"
+            aria-hidden="true"
+          >
+            <Flower2 size={74} />
+          </span>
+        </div>
+      </section>
+
+      <section
+        className="giftora-finder"
+        id="giftora-finder"
+        ref={finderRef}
+      >
+        <div className="app-container">
+          <div className="giftora-finder__card">
+
+            {/* Image eka uda, text eka yata */}
+          
+<div className="giftora-finder__intro">
+  <div
+    className="giftora-finder__image-background"
+    style={{ backgroundImage: `url(${bottomimg})` }}
+  >
+    <div className="giftora-finder__image-overlay">
+      <span>  <h2>Let’s find their perfect gift.</h2>
+    <p>
+    Tell us who it’s for and what you have in mind.
+    We’ll find a lovely place to start.
+    </p></span>
+    </div>
+  </div>
+
+
+</div>
+
+
+            <form
+              onSubmit={handleAIFinderSubmit}
+              className="giftora-finder__form"
+            >
               <div className="giftora-finder__field">
-                <label htmlFor="finder-recipient">Recipient</label>
+                <label htmlFor="finder-recipient">Who is it for?</label>
+
                 <select
                   id="finder-recipient"
                   value={finderRecipient}
-                  onChange={(e) => setFinderRecipient(e.target.value)}
+                  onChange={(event) =>
+                    setFinderRecipient(event.target.value)
+                  }
                 >
                   <option value="partner">Partner / Spouse</option>
                   <option value="friend">Best Friend</option>
@@ -280,129 +618,112 @@ export function Home() {
               </div>
 
               <div className="giftora-finder__field">
-                <label htmlFor="finder-occasion">Occasion</label>
+                <label htmlFor="finder-occasion">The occasion</label>
+
                 <select
                   id="finder-occasion"
                   value={finderOccasion}
-                  onChange={(e) => setFinderOccasion(e.target.value)}
+                  onChange={(event) =>
+                    setFinderOccasion(event.target.value)
+                  }
                 >
-                  <option value="birthday">Birthday Celebration</option>
+                  <option value="birthday">Birthday</option>
                   <option value="anniversary">Anniversary</option>
-                  <option value="wedding">Wedding / Romance</option>
-                  <option value="holiday">Holiday / Thank You</option>
+                  <option value="wedding">Wedding</option>
+                  <option value="holiday">Thank You / Holiday</option>
                 </select>
               </div>
 
               <div className="giftora-finder__field">
-                <label htmlFor="finder-budget">Budget ($)</label>
+                <label htmlFor="finder-budget">Your budget ($)</label>
+
                 <input
                   id="finder-budget"
                   type="number"
                   min="20"
                   max="500"
                   value={finderBudget}
-                  onChange={(e) => setFinderBudget(e.target.value)}
-                  placeholder="e.g. 75"
+                  onChange={(event) =>
+                    setFinderBudget(event.target.value)
+                  }
                   required
                 />
               </div>
 
-              <div className="giftora-finder__field giftora-finder__field--wide">
-                <label htmlFor="finder-interest">Interests / Vibe</label>
+              <div className="giftora-finder__field giftora-finder__field--interest">
+                <label htmlFor="finder-interest">
+                  Something they love
+                </label>
+
                 <input
                   id="finder-interest"
                   type="text"
                   value={finderInterest}
-                  onChange={(e) => setFinderInterest(e.target.value)}
-                  placeholder="e.g. flowers, chocolate, cozy spa, coffee"
+                  onChange={(event) =>
+                    setFinderInterest(event.target.value)
+                  }
+                  placeholder="Flowers, chocolate, cosy evenings..."
                 />
               </div>
 
-              <div className="giftora-finder__btn-wrap">
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="md"
-                  disabled={isSearchingAI}
-                  icon={isSearchingAI ? <div className="animate-spin" style={{ display: 'inline-block' }}>✨</div> : <Sparkles size={18} />}
-                >
-                  {isSearchingAI ? 'Finding Match...' : 'Find Perfect Gift'}
-                </Button>
-              </div>
+              <Button
+                type="submit"
+                variant="primary"
+                size="lg"
+                disabled={isSearchingAI}
+                icon={<Sparkles size={16} />}
+              >
+                {isSearchingAI ? 'Finding a match…' : 'Find a gift'}
+              </Button>
             </form>
 
-            {/* AI Suggestion Output Drawer */}
             {aiSuggestion && (
-              <div className="giftora-finder__result animate-fade-up">
-                <div className="giftora-finder__result-tag">
-                  <Sparkles size={14} /> AI Recommendation for your {finderOccasion}
+              <div
+                className="giftora-finder__result"
+                aria-live="polite"
+              >
+                <img
+                  src={aiSuggestion.image}
+                  alt={aiSuggestion.name}
+                />
+
+                <div className="giftora-finder__result-copy">
+                  <span className="giftora-home__eyebrow">
+                    <Sparkles size={13} />
+                    A lovely match for your {finderOccasion}
+                  </span>
+
+                  <h3>{aiSuggestion.name}</h3>
+                  <p>{aiSuggestion.description}</p>
+
+                  <strong>
+                    ${Number(aiSuggestion.price).toFixed(2)}
+                  </strong>
                 </div>
-                <div className="giftora-finder__result-body">
-                  <img
-                    src={aiSuggestion.image}
-                    alt={aiSuggestion.name}
-                    className="giftora-finder__result-img"
-                  />
-                  <div className="giftora-finder__result-info">
-                    <span className="giftora-finder__result-cat">{aiSuggestion.category}</span>
-                    <h3>{aiSuggestion.name}</h3>
-                    <p>{aiSuggestion.description}</p>
-                    <div className="giftora-finder__result-pricing">
-                      <span className="giftora-finder__result-price">
-                        ${Number(aiSuggestion.price).toFixed(2)}
-                      </span>
-                      <span className="giftora-finder__result-rating">
-                        ★ {Number(aiSuggestion.rating).toFixed(1)} rating
-                      </span>
-                    </div>
-                  </div>
-                  <div className="giftora-finder__result-actions">
-                    <button
-                      type="button"
-                      className="giftora-finder__add-btn"
-                      onClick={handleAddAiSuggestion}
-                    >
-                      {addedAiItem ? (
-                        <>
-                          <CheckCircle2 size={16} /> Added to Cart!
-                        </>
-                      ) : (
-                        <>
-                          <Gift size={16} /> Add to Cart
-                        </>
-                      )}
-                    </button>
-                    <Link to={`/product/${aiSuggestion.id}`} className="giftora-finder__view-link">
-                      View Details →
-                    </Link>
-                  </div>
+
+                <div className="giftora-finder__result-actions">
+                  <button
+                    type="button"
+                    onClick={handleAddAiSuggestion}
+                  >
+                    {addedAiItem ? (
+                      <>
+                        <CheckCircle2 size={15} /> Added
+                      </>
+                    ) : (
+                      <>
+                        <Gift size={15} /> Add to bag
+                      </>
+                    )}
+                  </button>
+
+                  <Link to={`/product/${aiSuggestion.id}`}>
+                    View gift <ArrowRight size={13} />
+                  </Link>
                 </div>
               </div>
             )}
-          </div>
-        </div>
-      </section>
 
-      {/* 5. CTA BANNER */}
-      <section className="giftora-cta">
-        <div className="app-container">
-          <div className="giftora-cta__card">
-            <div className="giftora-cta__content">
-              <span className="giftora-cta__badge">The Ultimate Experience</span>
-              <h2>Craft a Bespoke Gift Box in Seconds</h2>
-              <p>
-                Use our AI Gift Box Builder to pick ribbon styles, set your exact budget, and let our
-                algorithm curate the ideal mix of keepsakes, flowers, and sweet treats.
-              </p>
-              <Link to="/gift-box">
-                <Button variant="primary" size="lg" icon={<Gift size={20} />}>
-                  Build Your Own Gift Box
-                </Button>
-              </Link>
-            </div>
-            <div className="giftora-cta__decor">
-              <div className="giftora-cta__circle" />
-            </div>
           </div>
         </div>
       </section>

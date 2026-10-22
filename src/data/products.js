@@ -12,7 +12,7 @@ export const products = [
     price: 42.00,
     rating: 4.9,
     tag: "Bestseller",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80",
+    image: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=700&q=80",
     description: "A real Ecuadorian rose preserved in a crystal glass bell to symbolize enduring affection for 3+ years."
   },
   {

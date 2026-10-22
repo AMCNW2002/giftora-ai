@@ -14,9 +14,14 @@
   justify-content: space-between;
   margin-bottom: 2rem;
   padding-bottom: 1.25rem;
+  
   border-bottom: 1.5px solid var(--border);
 }
-
+.shopping-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 .giftora-cart-clear-btn {
   font-size: 0.88rem;
   font-weight: 600;
@@ -71,8 +76,8 @@
 /* Layout */
 .giftora-cart-layout {
   display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 2.5rem;
+  grid-template-columns: 1fr 480px;
+  gap: 5rem;
   align-items: flex-start;
 }
 

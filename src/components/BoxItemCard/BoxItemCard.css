@@ -1,0 +1,116 @@
+/* ==========================================================================
+   GIFTORA AI — BOX ITEM CARD STYLES
+   ========================================================================== */
+
+.giftora-box-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.giftora-box-item:hover {
+  border-color: rgba(232, 93, 117, 0.3);
+  box-shadow: var(--shadow-sm);
+}
+
+.giftora-box-item__img {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-xs);
+  object-fit: cover;
+  flex-shrink: 0;
+  background-color: var(--background);
+}
+
+.giftora-box-item__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.giftora-box-item__category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 0.06em;
+  display: block;
+}
+
+.giftora-box-item__title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.giftora-box-item__price {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.giftora-box-item__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.giftora-box-item__qty {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 2px;
+}
+
+.giftora-box-item__qty button {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+  transition: all var(--transition-fast);
+}
+
+.giftora-box-item__qty button:hover {
+  background-color: var(--surface);
+  color: var(--primary);
+}
+
+.giftora-box-item__qty span {
+  font-size: 0.82rem;
+  font-weight: 700;
+  width: 24px;
+  text-align: center;
+}
+
+.giftora-box-item__total {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--secondary);
+  min-width: 55px;
+  text-align: right;
+}
+
+.giftora-box-item__remove {
+  color: var(--text-muted);
+  padding: 4px;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.giftora-box-item__remove:hover {
+  color: var(--danger);
+  background-color: var(--danger-light);
+}

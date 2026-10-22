@@ -1,0 +1,190 @@
+.giftora-footer {
+  background-color: var(--secondary);
+  color: #c9c9dc;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Ribbon */
+.giftora-footer__ribbon {
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.5rem 0;
+}
+
+.giftora-footer__ribbon-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.giftora-footer__ribbon-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: #ffffff;
+}
+
+.giftora-footer__ribbon-item svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.giftora-footer__ribbon-item strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.giftora-footer__ribbon-item span {
+  font-size: 0.8rem;
+  color: #a4a4be;
+}
+
+/* Main */
+.giftora-footer__main {
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
+}
+
+.giftora-footer__grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 3.5rem;
+}
+
+/* Brand Column */
+.giftora-footer__brand-col {
+  padding-right: 1.5rem;
+}
+
+.giftora-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.giftora-footer__logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--primary) 0%, #db4863 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.giftora-footer__about-text {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #a3a3bd;
+  margin-bottom: 1.5rem;
+}
+
+.giftora-footer__socials {
+  display: flex;
+  gap: 0.65rem;
+}
+
+.giftora-footer__social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: all var(--transition-fast);
+}
+
+.giftora-footer__social-btn:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Column titles */
+.giftora-footer__col-title {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+.giftora-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.giftora-footer__links a {
+  font-size: 0.9rem;
+  color: #a3a3bd;
+  transition: all var(--transition-fast);
+}
+
+.giftora-footer__links a:hover {
+  color: var(--accent);
+  padding-left: 4px;
+}
+
+/* Bottom */
+.giftora-footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #8484a0;
+}
+
+.giftora-footer__bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.giftora-footer__bottom-links a:hover {
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .giftora-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .giftora-footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .giftora-footer__ribbon-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .giftora-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,499 @@
+/* ==========================================================================
+   GIFTORA AI — GIFT BOX BUILDER PAGE STYLES
+   ========================================================================== */
+
+.giftora-builder {
+  padding-top: 2.5rem;
+  padding-bottom: 6rem;
+}
+
+/* Header */
+.giftora-builder__header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem;
+}
+
+.giftora-builder__header h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  margin-bottom: 0.75rem;
+}
+
+.giftora-builder__header p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Main Grid */
+.giftora-builder__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.75rem;
+  align-items: flex-start;
+}
+
+/* Common Card */
+.giftora-builder__card {
+  background-color: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+}
+
+.giftora-builder__card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.giftora-builder__card-icon {
+  color: var(--primary);
+}
+
+.giftora-builder__card-title h3 {
+  font-size: 1.25rem;
+}
+
+/* AI Form */
+.giftora-builder__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.giftora-builder__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.giftora-builder__field label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--secondary);
+}
+
+.giftora-builder__field select,
+.giftora-builder__field input {
+  height: 46px;
+  padding: 0 1rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background-color: var(--background);
+  font-size: 0.92rem;
+  color: var(--secondary);
+  transition: border-color var(--transition-fast);
+}
+
+.giftora-builder__field select:focus,
+.giftora-builder__field input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.giftora-builder__budget-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currency-prefix {
+  position: absolute;
+  left: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.giftora-builder__budget-input-wrap input {
+  width: 100%;
+  padding-left: 2rem;
+}
+
+.giftora-builder__gen-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* "Add more to your box" Shelf */
+.giftora-builder__shelf {
+  background-color: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.giftora-builder__shelf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.giftora-builder__shelf-header h4 {
+  font-size: 1.05rem;
+}
+
+.giftora-builder__shelf-hint {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.giftora-builder__shelf-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.giftora-builder__mini-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  transition: all var(--transition-fast);
+}
+
+.giftora-builder__mini-card:hover {
+  border-color: var(--primary);
+  background-color: var(--surface);
+}
+
+.giftora-builder__mini-img {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-xs);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.giftora-builder__mini-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.giftora-builder__mini-info h5 {
+  font-size: 0.82rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.giftora-builder__mini-price {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.giftora-builder__mini-add {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  background-color: var(--surface);
+  color: var(--secondary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.giftora-builder__mini-add:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.giftora-builder__shelf-empty {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 1.5rem;
+  line-height: 1.5;
+  background-color: var(--background);
+  border-radius: var(--radius-sm);
+}
+
+/* ========================================================= */
+/* RIGHT COLUMN: GIFT BOX CANVAS STYLES                      */
+/* ========================================================= */
+.giftora-builder__canvas {
+  background-color: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 92px;
+}
+
+/* Decorative Ribbon Strip */
+.giftora-builder__ribbon-strip {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: background-color var(--transition-normal);
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+.giftora-builder__canvas-body {
+  padding: 2rem;
+}
+
+.giftora-builder__canvas-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.giftora-builder__canvas-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+}
+
+.giftora-builder__item-count {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.giftora-builder__clear-btn {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+.giftora-builder__clear-btn:hover {
+  color: var(--danger);
+}
+
+/* Items Scroll List */
+.giftora-builder__items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 290px;
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-bottom: 1.75rem;
+}
+
+.giftora-builder__empty-canvas {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background-color: var(--background);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border);
+}
+
+.giftora-builder__empty-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background-color: var(--surface);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.giftora-builder__empty-canvas h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.giftora-builder__empty-canvas p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* Ribbon Color Swatches */
+.giftora-builder__ribbon-picker {
+  margin-bottom: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.giftora-builder__picker-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--secondary);
+  margin-bottom: 0.75rem;
+}
+
+.giftora-builder__swatches {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.giftora-builder__swatch {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform var(--transition-fast), outline var(--transition-fast);
+  cursor: pointer;
+}
+
+.giftora-builder__swatch:hover {
+  transform: scale(1.1);
+}
+
+.giftora-builder__swatch--selected {
+  outline: 3px solid var(--secondary);
+  outline-offset: 3px;
+  transform: scale(1.08);
+}
+
+/* Calligraphy Message */
+.giftora-builder__message-wrap {
+  margin-bottom: 1.75rem;
+}
+
+.giftora-builder__message-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.giftora-builder__message-header label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--secondary);
+}
+
+.giftora-builder__char-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.giftora-builder__char-count.text-danger {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.giftora-builder__message-wrap textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background-color: var(--background);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--secondary);
+  resize: vertical;
+  line-height: 1.5;
+  transition: border-color var(--transition-fast);
+}
+
+.giftora-builder__message-wrap textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+/* Success Toast */
+.giftora-builder__toast {
+  background-color: var(--success-light);
+  border: 1px solid rgba(42, 157, 143, 0.3);
+  color: var(--success);
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.giftora-builder__toast-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.giftora-builder__toast-link {
+  color: var(--success);
+  text-decoration: underline;
+}
+
+/* Add Cart Action */
+.giftora-builder__actions-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.giftora-builder__add-cart-btn {
+  width: 100%;
+}
+
+.giftora-builder__warning-text {
+  font-size: 0.82rem;
+  color: var(--danger);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .giftora-builder__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .giftora-builder__canvas {
+    position: static;
+  }
+}
+
+@media (max-width: 540px) {
+  .giftora-builder__shelf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .giftora-builder__canvas-body {
+    padding: 1.5rem 1.25rem;
+  }
+}

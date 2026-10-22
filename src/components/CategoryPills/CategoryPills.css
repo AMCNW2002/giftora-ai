@@ -1,0 +1,45 @@
+.giftora-category-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding: 0.35rem 0.2rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE */
+}
+
+.giftora-category-pills::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.giftora-category-pill {
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--secondary);
+  background-color: var(--surface);
+  border: 1.5px solid var(--border);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.giftora-category-pill:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.giftora-category-pill--active {
+  background: linear-gradient(135deg, var(--secondary) 0%, #2b2b48 100%);
+  color: #ffffff;
+  border-color: var(--secondary);
+  box-shadow: 0 4px 12px rgba(26, 26, 46, 0.2);
+}
+
+.giftora-category-pill--active:hover {
+  background: linear-gradient(135deg, #24243e 0%, #1a1a2e 100%);
+  color: #ffffff;
+  border-color: var(--secondary);
+}

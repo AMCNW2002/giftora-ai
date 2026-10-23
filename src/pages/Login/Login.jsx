@@ -98,7 +98,7 @@ export function Login() {
               <CheckCircle size={18} color="var(--accent)" />
               <div>
                 <strong>Complimentary Express Shipping</strong>
-                <span>Unlocked on your orders over $80</span>
+                <span>Unlocked on your orders over Rs. 80</span>
               </div>
             </div>
           </div>

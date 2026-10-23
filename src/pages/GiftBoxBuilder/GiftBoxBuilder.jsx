@@ -14,6 +14,7 @@ import { products } from '../../data/products';
 import { BoxBudgetBar } from '../../components/BoxBudgetBar/BoxBudgetBar';
 import { BoxItemCard } from '../../components/BoxItemCard/BoxItemCard';
 import { Button } from '../../components/Button/Button';
+import { formatCurrency } from '../../utils/currency';
 import './GiftBoxBuilder.css';
 
 export function GiftBoxBuilder() {
@@ -182,9 +183,9 @@ export function GiftBoxBuilder() {
 
               {/* Budget */}
               <div className="giftora-builder__field">
-                <label htmlFor="box-budget">Set Your Box Budget ($)</label>
+                <label htmlFor="box-budget">Set Your Box Budget (Rs.)</label>
                 <div className="giftora-builder__budget-input-wrap">
-                  <span className="currency-prefix">$</span>
+                  <span className="currency-prefix">Rs.</span>
                   <input
                     id="box-budget"
                     type="number"
@@ -243,7 +244,7 @@ export function GiftBoxBuilder() {
               <span className="giftora-builder__shelf-hint">
                 {isOverBudget
                   ? 'Over budget'
-                  : `Items under $${remaining.toFixed(2)}`}
+                  : `Items under ${formatCurrency(remaining)}`}
               </span>
             </div>
 
@@ -259,7 +260,7 @@ export function GiftBoxBuilder() {
                     <div className="giftora-builder__mini-info">
                       <h5>{product.name}</h5>
                       <span className="giftora-builder__mini-price">
-                        ${Number(product.price).toFixed(2)}
+                        {formatCurrency(product.price)}
                       </span>
                     </div>
                     <button
@@ -428,13 +429,13 @@ export function GiftBoxBuilder() {
                   {isEmpty
                     ? 'Fill Box to Continue'
                     : isOverBudget
-                    ? `Over Budget — $${total.toFixed(2)}`
-                    : `Add Gift Box to Cart — $${total.toFixed(2)}`}
+                    ? `Over Budget — ${formatCurrency(total)}`
+                    : `Add Gift Box to Cart — ${formatCurrency(total)}`}
                 </Button>
 
                 {isOverBudget && (
                   <p className="giftora-builder__warning-text">
-                    <AlertTriangle size={15} /> Your total exceeds your budget of ${box.budget}.
+                    <AlertTriangle size={15} /> Your total exceeds your budget of {formatCurrency(box.budget)}.
                     Please remove an item or increase your budget to proceed.
                   </p>
                 )}

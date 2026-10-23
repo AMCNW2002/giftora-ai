@@ -74,7 +74,7 @@ export function CartProvider({ children }) {
   const total = Number(
     cart.reduce((acc, item) => acc + (item.price || 0) * (item.qty || 1), 0).toFixed(2)
   );
-  // Free shipping over $80, standard $9.99, $0 if empty
+  // Free shipping over Rs. 80, standard Rs. 9.99, Rs. 0 if empty
   const shipping = total === 0 ? 0 : total >= 80 ? 0 : 9.99;
   const grandTotal = Number((total + shipping).toFixed(2));
 

@@ -79,7 +79,7 @@ export function ProductCard({ product }) {
         {/* Price & Action */}
         <div className="giftora-card__footer">
           <div className="giftora-card__price">
-            <span className="giftora-card__currency">$</span>
+            <span className="giftora-card__currency">Rs.</span>
             <span className="giftora-card__amount">{Number(product.price).toFixed(2)}</span>
           </div>
 

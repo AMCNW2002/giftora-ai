@@ -102,13 +102,13 @@ export const api = {
         let reply = "I'm your Giftora Concierge! I can recommend handpicked gifts, help you build a custom gift box within your budget, or answer order questions.";
 
         if (lower.includes('ship') || lower.includes('delivery')) {
-          reply = "🚚 We offer complimentary express delivery on orders over $80! Standard orders arrive in 2–4 business days with custom gift-wrapping included.";
+          reply = "🚚 We offer complimentary express delivery on orders over Rs. 80! Standard orders arrive in 2–4 business days with custom gift-wrapping included.";
         } else if (lower.includes('order') || lower.includes('track') || lower.includes('status')) {
           reply = "📦 Every Giftora order comes with live SMS tracking and a personalized wax-sealed gift message. You can manage your bag anytime in your Cart!";
         } else if (lower.includes('box') || lower.includes('build') || lower.includes('budget')) {
           reply = "🎁 Check out our 'Gift Box' builder in the top navigation! Just choose your recipient and budget, and our AI will curate an exquisite, ready-to-ship box in seconds.";
         } else if (lower.includes('birthday') || lower.includes('anniversary') || lower.includes('partner')) {
-          reply = "✨ For romantic moments or birthdays, our Eternal Rose Keepsake ($42) paired with a Custom Star Map Night Light ($36) is our most loved duo!";
+          reply = "✨ For romantic moments or birthdays, our Eternal Rose Keepsake (Rs. 42) paired with a Custom Star Map Night Light (Rs. 36) is our most loved duo!";
         } else if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey')) {
           reply = "Warm greetings! 🌸 Who are you shopping for today? Tell me their interests or your budget, and I'll find something wonderful.";
         }

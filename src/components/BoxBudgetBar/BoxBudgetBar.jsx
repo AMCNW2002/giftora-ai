@@ -1,5 +1,6 @@
 import React from 'react';
 import { AlertCircle, CheckCircle2 } from 'lucide-react';
+import { formatCurrency } from '../../utils/currency';
 import './BoxBudgetBar.css';
 
 /**
@@ -18,10 +19,10 @@ export function BoxBudgetBar({ total = 0, budget = 100, remaining = 0, isOverBud
         <span className="giftora-budget-bar__title">Box Total</span>
         <div className="giftora-budget-bar__amounts">
           <span className={`giftora-budget-bar__current ${isOverBudget ? 'text-danger' : ''}`}>
-            ${total.toFixed(2)}
+            {formatCurrency(total)}
           </span>
           <span className="giftora-budget-bar__divider">/</span>
-          <span className="giftora-budget-bar__target">${Number(budget).toFixed(2)} target</span>
+          <span className="giftora-budget-bar__target">{formatCurrency(budget)} target</span>
         </div>
       </div>
 
@@ -39,11 +40,11 @@ export function BoxBudgetBar({ total = 0, budget = 100, remaining = 0, isOverBud
       <div className="giftora-budget-bar__status">
         {isOverBudget ? (
           <span className="giftora-budget-bar__status-text giftora-budget-bar__status-text--over">
-            <AlertCircle size={15} /> Over budget by ${overAmount}
+            <AlertCircle size={15} /> Over budget by {formatCurrency(overAmount)}
           </span>
         ) : (
           <span className="giftora-budget-bar__status-text giftora-budget-bar__status-text--ok">
-            <CheckCircle2 size={15} /> ${remaining.toFixed(2)} remaining to spend
+            <CheckCircle2 size={15} /> {formatCurrency(remaining)} remaining to spend
           </span>
         )}
         <span className="giftora-budget-bar__percent">{percentage}% used</span>

@@ -16,6 +16,7 @@ import {
 import { products } from '../../data/products';
 import { useCart } from '../../context/CartContext';
 import { Button } from '../../components/Button/Button';
+import { formatCurrency } from '../../utils/currency';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
 import './ProductDetails.css';
 
@@ -126,7 +127,7 @@ export function ProductDetails() {
 
           {/* Price */}
           <div className="giftora-details__price-row">
-            <span className="giftora-details__price">${Number(product.price).toFixed(2)}</span>
+            <span className="giftora-details__price">{formatCurrency(product.price)}</span>
             <span className="giftora-details__tax-note">Taxes included • Gift box eligible</span>
           </div>
 
@@ -165,7 +166,7 @@ export function ProductDetails() {
                 icon={justAdded ? <Check size={18} /> : <ShoppingBag size={18} />}
                 className="giftora-details__add-btn"
               >
-                {justAdded ? 'Added to Bag!' : `Add to Bag • $${(product.price * qty).toFixed(2)}`}
+                {justAdded ? 'Added to Bag!' : `Add to Bag • ${formatCurrency(product.price * qty)}`}
               </Button>
 
               <Link to="/gift-box">
@@ -187,7 +188,7 @@ export function ProductDetails() {
               <Truck size={18} color="var(--primary)" />
               <div>
                 <strong>Complimentary Express Shipping</strong>
-                <span>Eligible on orders over $80</span>
+                <span>Eligible on orders over Rs. 80</span>
               </div>
             </div>
             <div className="giftora-details__perk">
@@ -287,7 +288,7 @@ export function ProductDetails() {
               <h3>Delivery Times & Packaging Guarantee</h3>
               <p>
                 Standard courier delivery takes 2 to 4 business days. Priority next-day delivery is
-                available at checkout. Orders over $80 receive automatic free express dispatch.
+                available at checkout. Orders over Rs. 80 receive automatic free express dispatch.
               </p>
               <p>
                 All gifts are encased in protective biodegradable cushioning and enclosed in our

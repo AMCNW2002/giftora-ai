@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { Button } from '../../components/Button/Button';
+import { formatCurrency } from '../../utils/currency';
 import './Cart.css';
 
 export function Cart() {
@@ -56,9 +57,7 @@ export function Cart() {
     setCheckoutSuccess(true);
     setTimeout(() => {
       alert(
-        `🎉 Demo Checkout Successful!\n\nOrder total: $${finalPayable.toFixed(
-          2
-        )}\nItems: ${count}\n\nSince this is a frontend-only demo, no real payment was processed. Your bag will now be refreshed.`
+        `🎉 Demo Checkout Successful!\n\nOrder total: ${formatCurrency(finalPayable)}\nItems: ${count}\n\nSince this is a frontend-only demo, no real payment was processed. Your bag will now be refreshed.`
       );
       clearCart();
       setCheckoutSuccess(false);
@@ -122,7 +121,7 @@ export function Cart() {
           <span>
             {amountToFreeShipping > 0 ? (
               <>
-                Add <strong>${amountToFreeShipping.toFixed(2)}</strong> more to unlock{' '}
+                Add <strong>{formatCurrency(amountToFreeShipping)}</strong> more to unlock{' '}
                 <strong>FREE Express Shipping</strong>!
               </>
             ) : (
@@ -156,7 +155,7 @@ export function Cart() {
                   <Link to={`/product/${item.id}`}>{item.name}</Link>
                 </h3>
                 <span className="giftora-cart-item__unit-price">
-                  ${Number(item.price).toFixed(2)} each
+                  {formatCurrency(item.price)} each
                 </span>
 
                 <div className="giftora-cart-item__bottom">
@@ -181,7 +180,7 @@ export function Cart() {
 
                   {/* Subtotal */}
                   <span className="giftora-cart-item__subtotal">
-                    ${(item.price * item.qty).toFixed(2)}
+                    {formatCurrency(item.price * item.qty)}
                   </span>
 
                   {/* Remove Button */}
@@ -215,13 +214,13 @@ export function Cart() {
             {/* Calculations Table */}
             <div className="giftora-cart-summary__row">
               <span>Subtotal ({count} items)</span>
-              <span>${total.toFixed(2)}</span>
+              <span>{formatCurrency(total)}</span>
             </div>
 
             {discountPercent > 0 && (
               <div className="giftora-cart-summary__row giftora-cart-summary__row--discount">
                 <span>Discount ({discountPercent}%)</span>
-                <span>-${discountAmount.toFixed(2)}</span>
+                <span>-{formatCurrency(discountAmount)}</span>
               </div>
             )}
 
@@ -230,7 +229,7 @@ export function Cart() {
                 Estimated Shipping
                 {shipping === 0 && <span className="free-badge">FREE</span>}
               </span>
-              <span>{shipping === 0 ? '$0.00' : `$${shipping.toFixed(2)}`}</span>
+              <span>{formatCurrency(shipping)}</span>
             </div>
 
             <div className="giftora-cart-summary__row">
@@ -246,7 +245,7 @@ export function Cart() {
                 <strong>Total Amount</strong>
                 <span>Taxes included</span>
               </div>
-              <span className="giftora-cart-summary__grand-price">${finalPayable.toFixed(2)}</span>
+              <span className="giftora-cart-summary__grand-price">{formatCurrency(finalPayable)}</span>
             </div>
 
             {/* Promo Code Form */}
@@ -281,7 +280,7 @@ export function Cart() {
               disabled={checkoutSuccess}
               icon={checkoutSuccess ? <CheckCircle2 size={18} /> : <ShieldCheck size={18} />}
             >
-              {checkoutSuccess ? 'Processing Demo...' : `Proceed to Checkout • $${finalPayable.toFixed(2)}`}
+              {checkoutSuccess ? 'Processing Demo...' : `Proceed to Checkout • ${formatCurrency(finalPayable)}`}
             </Button>
 
             {/* Guarantees */}

@@ -28,7 +28,7 @@ export function Navbar() {
       {/* Slim Luxury Announcement Bar */}
       <div className="giftora-navbar__announcement">
         <div className="app-container giftora-navbar__announcement-inner">
-          <span>Complimentary express delivery on orders over $80</span>
+          <span>Complimentary express delivery on orders over Rs. 80</span>
           <span className="giftora-navbar__announcement-sep">•</span>
           <span>Handcrafted luxury packaging & wax seal included</span>
         </div>

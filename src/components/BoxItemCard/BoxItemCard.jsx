@@ -1,5 +1,6 @@
 import React from 'react';
 import { Plus, Minus, Trash2 } from 'lucide-react';
+import { formatCurrency } from '../../utils/currency';
 import './BoxItemCard.css';
 
 /**
@@ -18,7 +19,7 @@ export function BoxItemCard({ item, onUpdateQty, onRemove }) {
       <div className="giftora-box-item__info">
         <span className="giftora-box-item__category">{item.category}</span>
         <h4 className="giftora-box-item__title">{item.name}</h4>
-        <span className="giftora-box-item__price">${Number(item.price).toFixed(2)} each</span>
+        <span className="giftora-box-item__price">{formatCurrency(item.price)} each</span>
       </div>
 
       {/* Quantity & Actions */}
@@ -42,7 +43,7 @@ export function BoxItemCard({ item, onUpdateQty, onRemove }) {
         </div>
 
         <span className="giftora-box-item__total">
-          ${(item.price * item.qty).toFixed(2)}
+          {formatCurrency(item.price * item.qty)}
         </span>
 
         <button

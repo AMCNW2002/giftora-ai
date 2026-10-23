@@ -19,6 +19,7 @@ import {
 import { Button } from '../../components/Button/Button';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
 import { products } from '../../data/products';
+import { formatCurrency } from '../../utils/currency';
 import { useCart } from '../../context/CartContext';
 import heroImageOne from '../../assets/hero1.jpeg';
 import heroImageTwo from '../../assets/hero2.jpeg';
@@ -275,7 +276,7 @@ export function Home() {
             <span><Truck size={18} /></span>
             <div>
               <strong>Worldwide delivery</strong>
-              <small>Free over $80</small>
+              <small>Free over Rs. 80</small>
             </div>
           </div>
 
@@ -571,7 +572,7 @@ export function Home() {
               </div>
 
               <div className="giftora-finder__field">
-                <label htmlFor="finder-budget">Your budget ($)</label>
+                <label htmlFor="finder-budget">Your budget (Rs.)</label>
 
                 <input
                   id="finder-budget"
@@ -633,7 +634,7 @@ export function Home() {
                   <p>{aiSuggestion.description}</p>
 
                   <strong>
-                    ${Number(aiSuggestion.price).toFixed(2)}
+                    {formatCurrency(aiSuggestion.price)}
                   </strong>
                 </div>
 

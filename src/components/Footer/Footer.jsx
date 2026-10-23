@@ -13,7 +13,7 @@ export function Footer() {
             <Truck size={20} />
             <div>
               <strong>Free Express Shipping</strong>
-              <span>On all orders over $80</span>
+              <span>On all orders over Rs. 80</span>
             </div>
           </div>
           <div className="giftora-footer__ribbon-item">
@@ -91,7 +91,7 @@ export function Footer() {
           <div className="giftora-footer__col">
             <h4 className="giftora-footer__col-title">Customer Care</h4>
             <ul className="giftora-footer__links">
-              <li><a href="#about-footer">Shipping Policy (Free over $80)</a></li>
+              <li><a href="#about-footer">Shipping Policy (Free over Rs. 80)</a></li>
               <li><a href="#about-footer">Live Order Tracking</a></li>
               <li><a href="#about-footer">Gift Packaging & Wax Seals</a></li>
               <li><a href="#about-footer">Concierge Support</a></li>

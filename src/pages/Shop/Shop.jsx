@@ -119,6 +119,9 @@ export function Shop() {
                 <option value="rating">Top Rated (Highest First)</option>
               </select>
             </div>
+             <span className="giftora-shop__count-badge">
+              Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'gift' : 'gifts'}
+            </span>
           </div>
 
           {/* Category Pills Row */}
@@ -130,9 +133,7 @@ export function Shop() {
                 setSearchParams(category === 'all' ? {} : { category })
               }
             />
-            <span className="giftora-shop__count-badge">
-              Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'gift' : 'gifts'}
-            </span>
+           
           </div>
         </div>
       </section>

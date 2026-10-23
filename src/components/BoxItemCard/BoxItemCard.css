@@ -115,3 +115,45 @@
   color: var(--danger);
   background-color: var(--danger-light);
 }
+
+@media (max-width: 540px) {
+  .giftora-box-item {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 0.5rem 0.7rem;
+    padding: 0.7rem;
+  }
+
+  .giftora-box-item__img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .giftora-box-item__title {
+    font-size: 0.98rem;
+  }
+
+  .giftora-box-item__actions {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    padding-top: 0.45rem;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .giftora-box-item__qty button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .giftora-box-item__qty span {
+    width: 26px;
+  }
+
+  .giftora-box-item__remove {
+    min-width: 36px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

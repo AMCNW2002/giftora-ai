@@ -280,3 +280,18 @@
     display: none;
   }
 }
+
+@media (max-width: 380px) {
+  .giftora-navbar__inner {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .giftora-navbar__actions {
+    gap: 0.25rem;
+  }
+
+  .giftora-navbar__actions > .giftora-navbar__action-btn:not(.giftora-navbar__cart-btn) {
+    display: none;
+  }
+}

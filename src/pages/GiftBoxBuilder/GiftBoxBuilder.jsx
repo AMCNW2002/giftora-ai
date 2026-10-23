@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Sparkles,
   Gift,
   Plus,
-  Trash2,
   Check,
   AlertTriangle,
   ShoppingBag,
-  ArrowRight,
-  HeartHandshake
 } from 'lucide-react';
 import { useGiftBox, RIBBON_COLORS } from '../../context/GiftBoxContext';
 import { useCart } from '../../context/CartContext';
@@ -137,10 +134,6 @@ export function GiftBoxBuilder() {
           <Sparkles size={14} /> Bespoke AI Experience
         </div>
         <h1>Custom Gift Box Builder</h1>
-        <p>
-          Configure your budget, choose an occasion, and let our intelligent knapsack algorithm
-          curate an exquisite gift box hand-tied with custom satin ribbons.
-        </p>
       </div>
 
       {/* Main Two-Column Layout */}
@@ -450,6 +443,48 @@ export function GiftBoxBuilder() {
           </div>
         </div>
       </div>
+
+      <section className="giftora-builder__preview-stage" aria-labelledby="gift-preview-title">
+        <div className="giftora-builder__preview-copy">
+          <span className="section-eyebrow"><Sparkles size={14} /> A little preview</span>
+          <h2 id="gift-preview-title">Your gift, beautifully wrapped</h2>
+          <p>
+            {isEmpty
+              ? 'Your personalised gift box preview will take shape as you add items.'
+              : `${count} ${count === 1 ? 'thoughtful detail' : 'thoughtful details'} in your gift box, finished with ${ribbonInfo.label.toLowerCase()} ribbon.`}
+          </p>
+        </div>
+        <div
+          className="giftora-builder__preview-art"
+          role="img"
+          aria-label={`Illustration of a gift box with ${ribbonInfo.label.toLowerCase()} ribbon`}
+        >
+          <div className="giftora-builder__gift-shadow" />
+          <div className="giftora-builder__gift-box">
+            <div className="giftora-builder__gift-lid" />
+            <div className="giftora-builder__gift-front" />
+            <div className="giftora-builder__gift-side" />
+            <div
+              className="giftora-builder__gift-ribbon giftora-builder__gift-ribbon--vertical"
+              style={{ backgroundColor: ribbonInfo.hex }}
+            />
+            <div
+              className="giftora-builder__gift-ribbon giftora-builder__gift-ribbon--horizontal"
+              style={{ backgroundColor: ribbonInfo.hex }}
+            />
+            <div className="giftora-builder__gift-bow">
+              <span style={{ backgroundColor: ribbonInfo.hex }} />
+              <span style={{ backgroundColor: ribbonInfo.hex }} />
+              <i style={{ backgroundColor: ribbonInfo.hex }} />
+            </div>
+          </div>
+          {!isEmpty && (
+            <span className="giftora-builder__preview-count">
+              <Gift size={14} /> {count} {count === 1 ? 'item' : 'items'} selected
+            </span>
+          )}
+        </div>
+      </section>
     </div>
   );
 }

@@ -8,6 +8,41 @@ import { products } from '../data/products';
  * logic with real `fetch(...)` or `axios(...)` calls as commented below.
  */
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+
+const parseJson = async (response) => {
+  try {
+    return await response.json();
+  } catch (error) {
+    return {};
+  }
+};
+
+const handleJsonRequest = async (endpoint, options = {}, fallback) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...(options.headers || {})
+      },
+      ...options
+    });
+
+    const data = await parseJson(response);
+
+    if (!response.ok) {
+      throw new Error(data.message || data.error || 'Request failed');
+    }
+
+    return data;
+  } catch (error) {
+    if (fallback) {
+      return fallback();
+    }
+    throw error;
+  }
+};
+
 export const api = {
   /**
    * Fetch all products
@@ -119,18 +154,40 @@ export const api = {
   },
 
   /**
-   * User Authentication Mock
-   * Real backend swap: return fetch('/api/auth/login', { method: 'POST', body: JSON.stringify(creds) })
+   * User Authentication
+   * Backend-ready implementation that sends login/register payloads to the API.
    */
-  login: ({ email, name }) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const user = {
-          email: email || 'user@example.com',
-          name: name || (email ? email.split('@')[0] : 'Giftora Guest')
-        };
-        resolve({ user, token: 'demo-jwt-token-giftora' });
-      }, 400);
-    });
+  login: async ({ email, name, password, isRegisterMode = false }) => {
+    const userData = {
+      email: email || 'user@example.com',
+      name: name || (email ? email.split('@')[0] : 'Giftora Guest'),
+      password: password || 'demo-password'
+    };
+
+    if (isRegisterMode) {
+      return handleJsonRequest('/api/auth/register', {
+        method: 'POST',
+        body: JSON.stringify(userData)
+      }, () => ({
+        user: {
+          email: userData.email,
+          name: userData.name,
+          memberSince: new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+        },
+        token: 'demo-jwt-token-giftora'
+      }));
+    }
+
+    return handleJsonRequest('/api/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({ email: userData.email, password: userData.password })
+    }, () => ({
+      user: {
+        email: userData.email,
+        name: userData.name,
+        memberSince: new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+      },
+      token: 'demo-jwt-token-giftora'
+    }));
   }
 };

@@ -25,9 +25,9 @@ export function Login() {
     }
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !password) {
+    if (!email || !password || (isRegisterMode && !name.trim())) {
       setStatusMessage({ type: 'error', text: 'Please fill in all required fields.' });
       return;
     }
@@ -40,19 +40,30 @@ export function Login() {
     };
 
     try {
-      window.localStorage.setItem('giftora-user', JSON.stringify(userPayload));
-      setCurrentUser(userPayload);
+      const response = await import('../../services/api').then((m) => m.api.login({
+        email: userPayload.email,
+        name: userPayload.name,
+        password,
+        isRegisterMode
+      }));
+
+      const authUser = response?.user || userPayload;
+      const token = response?.token || 'demo-jwt-token-giftora';
+
+      window.localStorage.setItem('giftora-user', JSON.stringify(authUser));
+      window.localStorage.setItem('giftora-token', token);
+      setCurrentUser(authUser);
       setStatusMessage({
         type: 'success',
         text: isRegisterMode
-          ? `Welcome to Giftora AI, ${userPayload.name}!`
-          : `Signed in successfully as ${userPayload.name}`
+          ? `Welcome to Giftora AI, ${authUser.name}!`
+          : `Signed in successfully as ${authUser.name}`
       });
       setTimeout(() => {
         navigate('/');
       }, 1000);
     } catch (e) {
-      setStatusMessage({ type: 'error', text: 'Failed to save authentication session.' });
+      setStatusMessage({ type: 'error', text: e.message || 'Failed to save authentication session.' });
     }
   };
 

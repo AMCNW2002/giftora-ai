@@ -1,0 +1,102 @@
+SAMPLE_PRODUCTS = [
+  {
+    "id": 1,
+    "name": "Eternal Preserved Rose Keepsake",
+    "category": "flowers",
+    "price": 420.00,
+    "rating": 4.9,
+    "tag": "Bestseller",
+    "image": "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=700&q=80",
+    "description": "A real Ecuadorian rose preserved in a crystal glass bell to symbolize enduring affection for 3+ years."
+  },
+  {
+    "id": 2,
+    "name": "Custom Star Map Night Light",
+    "category": "personalized",
+    "price": 360.00,
+    "rating": 4.8,
+    "tag": "Bestseller",
+    "image": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=80",
+    "description": "Laser-engraved acrylic light capturing the exact celestial alignment of your milestone date and place."
+  },
+  {
+    "id": 3,
+    "name": "Velvet Artisanal Chocolate Hamper",
+    "category": "hampers",
+    "price": 640.00,
+    "rating": 4.9,
+    "tag": "Bestseller",
+    "image": "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=700&q=80",
+    "description": "Handcrafted dark & milk chocolate truffles paired with organic honey and French almond nougats."
+  },
+  {
+    "id": 4,
+    "name": "18k Gold Plated Initial Locket",
+    "category": "jewelry",
+    "price": 780.00,
+    "rating": 4.7,
+    "tag": "New",
+    "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80",
+    "description": "Delicate heirloom locket designed to hold two miniature photos, suspended on an Italian twist chain."
+  },
+  {
+    "id": 5,
+    "name": "Smart Ceramic Temp-Control Mug",
+    "category": "tech",
+    "price": 940.00,
+    "rating": 4.9,
+    "tag": "Bestseller",
+    "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80",
+    "description": "Keeps your morning brew at the exact preferred sipping temperature for up to 2.5 hours."
+  },
+  {
+    "id": 6,
+    "name": "Pastel Meadow Blossom Bouquet",
+    "category": "flowers",
+    "price": 520.00,
+    "rating": 4.6,
+    "tag": None,
+    "image": "https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=700&q=80",
+    "description": "Farm-fresh eucalyptus, ranunculus, and champagne roses wrapped in eco-friendly linen paper."
+  },
+  {
+    "id": 7,
+    "name": "Monogram Saffiano Leather Journal",
+    "category": "personalized",
+    "price": 280.00,
+    "rating": 4.8,
+    "tag": None,
+    "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=700&q=80",
+    "description": "Refillable Italian leather journal with foil-stamped initials and heavyweight 120gsm archival paper."
+  },
+  {
+    "id": 8,
+    "name": "Champagne & Truffle Celebration Basket",
+    "category": "hampers",
+    "price": 115.00,
+    "rating": 4.9,
+    "tag": "Bestseller",
+    "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80",
+    "description": "A grand celebration hamper including vintage sparkling bubbly, Belgian pralines, and crystal flutes."
+  },
+  {
+    "id": 9,
+    "name": "Minimalist Wireless Charging Pad",
+    "category": "tech",
+    "price": 240.00,
+    "rating": 4.5,
+    "tag": None,
+    "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=700&q=80",
+    "description": "Fast 15W Qi-certified charging pad wrapped in woven heathered fabric with ambient LED ring."
+  },
+  {
+    "id": 10,
+    "name": "Handmade Scented Soy Candle Duo",
+    "category": "personalized",
+    "price": 220.00,
+    "rating": 4.7,
+    "tag": "New",
+    "image": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=700&q=80",
+    "description": "Infused with amber vanilla and French lavender, poured in frosted glass with wooden wicks."
+  }
+]

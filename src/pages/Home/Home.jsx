@@ -244,12 +244,12 @@ export function Home() {
   <div className="giftora-hero__slider-controls">
     {/* ...same as before... */}
   </div>
-</section>
+
 
       <section className="giftora-benefits" aria-label="Giftora services">
         <div className="app-container giftora-benefits__grid">
           <div className="giftora-benefit">
-            <span><Heart size={18} /></span>
+            <span><Heart size={19} /></span>
             <div>
               <strong>Thoughtful picks</strong>
               <small>Chosen with care</small>
@@ -257,7 +257,7 @@ export function Home() {
           </div>
 
           <div className="giftora-benefit">
-            <span><Sparkles size={18} /></span>
+            <span><Sparkles size={19} /></span>
             <div>
               <strong>Make it personal</strong>
               <small>Add a heartfelt touch</small>
@@ -265,7 +265,7 @@ export function Home() {
           </div>
 
           <div className="giftora-benefit">
-            <span><PackageCheck size={18} /></span>
+            <span><PackageCheck size={19} /></span>
             <div>
               <strong>Gift-ready details</strong>
               <small>Beautifully presented</small>
@@ -273,7 +273,7 @@ export function Home() {
           </div>
 
           <div className="giftora-benefit">
-            <span><Truck size={18} /></span>
+            <span><Truck size={19} /></span>
             <div>
               <strong>Worldwide delivery</strong>
               <small>Free over Rs. 80</small>
@@ -281,7 +281,7 @@ export function Home() {
           </div>
 
           <div className="giftora-benefit">
-            <span><ShieldCheck size={18} /></span>
+            <span><ShieldCheck size={19} /></span>
             <div>
               <strong>Shop with confidence</strong>
               <small>Care at every step</small>
@@ -289,7 +289,7 @@ export function Home() {
           </div>
         </div>
       </section>
-
+</section>
       <section
         className="giftora-home-section giftora-categories"
         id="giftora-categories"

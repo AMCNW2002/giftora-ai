@@ -64,9 +64,7 @@ export function Navbar() {
           >
             Shop
           </NavLink>
-          <Link to="/#giftora-occasions" className="giftora-navbar__link">
-            Occasions
-          </Link>
+         
           <NavLink
             to="/gift-box"
             className={({ isActive }) =>
@@ -79,9 +77,6 @@ export function Navbar() {
             <span>Gift Box</span>
             <span className="giftora-navbar__badge-ai">AI Builder</span>
           </NavLink>
-          <Link to="/#giftora-personalise" className="giftora-navbar__link">
-            Personalise
-          </Link>
           <a href="/#about-footer" className="giftora-navbar__link">
             About
           </a>

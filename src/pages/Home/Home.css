@@ -34,7 +34,7 @@
   position: relative;
   isolation: isolate;
   display: flex;
-  min-height: clamp(500px, 85vh, 420px);
+  min-height: clamp(650px, 85vh, 420px);
   align-items: flex-start; 
   overflow: hidden;
   background: #e8d6c3;
@@ -304,17 +304,20 @@
 
 /* ============ BENEFITS ============ */
 .giftora-benefits {
+  position: absolute;
+  padding-top:550px;
+  z-index: 1;
   border-bottom: 1px solid #eee3d7;
-  background: #fffdf9;
-  padding-left: 0.01rem;
+  background: transparent;
+  padding-left: 5rem;
 }
-
 .giftora-benefits__grid {
   display: grid;
   min-height: 78px;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   align-items: center;
-  gap: 1rem;
+  gap: 3rem;
+  
 }
 
 .giftora-benefit {
@@ -344,14 +347,14 @@
 }
 
 .giftora-benefit strong {
-  color: #3b2a20;
-  font-size: 0.7rem;
+  color: #130701;
+  font-size: 0.9rem;
   font-weight: 650;
 }
 
 .giftora-benefit small {
-  color: #8a7a6f;
-  font-size: 0.63rem;
+  color: #0c0602;
+  font-size: 0.73rem;
 }
 
 /* ============ SHARED SECTION ============ */

@@ -99,7 +99,7 @@
 .giftora-navbar__nav {
   display: flex;
   align-items: center;
-  gap: clamp(0.75rem, 1.3vw, 1.25rem);
+  gap: clamp(5rem, 1.3vw, 1.25rem);
 }
 
 .giftora-navbar__link {

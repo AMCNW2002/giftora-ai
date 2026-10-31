@@ -1,0 +1,328 @@
+/* ==========================================================================
+   GIFTORA AI — LUXURY GIFTING DESIGN SYSTEM & FOUNDATION
+   Color Palette:
+   - Deep Chocolate Brown: #3B2118
+   - Rich Dark Brown:      #281711
+   - Warm Cream:           #F8F1E7
+   - Soft Ivory:           #FFFCF7
+   - Champagne Gold:       #C8A56A
+   - Muted Beige:          #E9DCCB
+   - Elegant Dark Text:    #38261F
+   ========================================================================== */
+
+:root {
+  /* Luxury Brand Color System */
+  --color-chocolate: #3B2118;
+  --color-dark-brown: #281711;
+  --color-cream: #F8F1E7;
+  --color-ivory: #FFFCF7;
+  --color-gold: #C8A56A;
+  --color-gold-hover: #B69256;
+  --color-gold-light: #F6EEDB;
+  --color-beige: #E9DCCB;
+  --color-beige-light: #F2E8DC;
+  --color-text-dark: #38261F;
+  --color-text-muted: #7A665D;
+  --color-text-subtle: #A39188;
+
+  /* Semantic Theme Mappings */
+  --primary: #3B2118;
+  --primary-hover: #281711;
+  --primary-light: #F8F1E7;
+  --primary-soft: rgba(59, 33, 24, 0.08);
+
+  --secondary: #281711;
+  --secondary-light: #3B2118;
+  --secondary-muted: #7A665D;
+
+  --accent: #C8A56A;
+  --accent-hover: #B69256;
+  --accent-light: #F6EEDB;
+  --accent-soft: rgba(200, 165, 106, 0.14);
+
+  --background: #F8F1E7;
+  --surface: #FFFCF7;
+  --surface-raised: #FFFFFF;
+  --surface-contrast: #281711;
+
+  --text: #38261F;
+  --text-muted: #7A665D;
+  --text-inverted: #F8F1E7;
+
+  --border: #E9DCCB;
+  --border-light: #F2E8DC;
+  --border-dark: #3B2118;
+  --border-gold: rgba(200, 165, 106, 0.45);
+
+  --danger: #9E3B3B;
+  --danger-light: #FDF2F2;
+  --success: #4A6B53;
+  --success-light: #F1F6F3;
+
+  /* Typography */
+  --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-serif-sub: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Restrained Luxury Radii (editorial & refined, not bubbly) */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-full: 9999px;
+
+  /* Subtle, Soft Shadows */
+  --shadow-xs: 0 1px 3px rgba(40, 23, 17, 0.04);
+  --shadow-sm: 0 2px 8px rgba(40, 23, 17, 0.05);
+  --shadow-md: 0 6px 20px rgba(40, 23, 17, 0.07);
+  --shadow-lg: 0 14px 36px rgba(40, 23, 17, 0.09);
+  --shadow-xl: 0 20px 48px rgba(40, 23, 17, 0.12);
+  --shadow-gold: 0 6px 20px rgba(200, 165, 106, 0.25);
+
+  /* Transitions */
+  --transition-fast: 160ms cubic-bezier(0.2, 0, 0, 1);
+  --transition-normal: 260ms cubic-bezier(0.2, 0, 0, 1);
+  --transition-slow: 400ms cubic-bezier(0.2, 0, 0, 1);
+
+  /* Glassmorphism / Frosted */
+  --glass-bg: rgba(255, 252, 247, 0.92);
+  --glass-border: rgba(233, 220, 203, 0.85);
+
+  /* Container */
+  --container-max: 1240px;
+}
+
+/* Base Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-chocolate);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 500;
+}
+
+h4 {
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-weight: 500;
+}
+
+p {
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+  user-select: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Main Container Layout */
+.app-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.main-content {
+  flex: 1 0 auto;
+}
+
+/* Section Eyebrow (Luxury Champagne Gold Label) */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-gold);
+  margin-bottom: 0.65rem;
+}
+
+.section-eyebrow svg {
+  width: 13px;
+  height: 13px;
+  color: var(--color-gold);
+}
+
+/* Luxury Text Highlights */
+.text-highlight-gold {
+  color: var(--color-gold);
+  font-style: italic;
+  font-family: var(--font-heading);
+}
+
+.text-highlight-rose {
+  color: var(--color-chocolate);
+  font-style: italic;
+  font-family: var(--font-heading);
+}
+
+/* Subtle Luxury Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.4s cubic-bezier(0.2, 0, 0, 1) forwards;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Luxury Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-beige);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}

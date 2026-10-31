@@ -1,0 +1,51 @@
+/* ==========================================================================
+   CATEGORY PILLS — LUXURY EDITORIAL STYLES
+   ========================================================================== */
+
+.giftora-category-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  overflow-x: auto;
+  padding: 0.35rem 0.2rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.giftora-category-pills::-webkit-scrollbar {
+  display: none;
+}
+
+.giftora-category-pill {
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-chocolate);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.giftora-category-pill:hover {
+  border-color: var(--color-gold);
+  color: var(--color-dark-brown);
+  background-color: var(--color-cream);
+}
+
+.giftora-category-pill--active {
+  background-color: var(--color-chocolate);
+  color: var(--color-cream);
+  border-color: var(--color-dark-brown);
+  box-shadow: 0 2px 8px rgba(40, 23, 17, 0.12);
+}
+
+.giftora-category-pill--active:hover {
+  background-color: var(--color-dark-brown);
+  color: #FFFFFF;
+  border-color: var(--color-gold);
+}

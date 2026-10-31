@@ -1,0 +1,297 @@
+/* ==========================================================================
+   NAVBAR — LUXURY GIFTING STYLING
+   ========================================================================== */
+
+.giftora-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  transition: all var(--transition-normal);
+}
+
+.giftora-navbar--scrolled {
+  box-shadow: 0 4px 20px rgba(40, 23, 17, 0.06);
+  border-bottom-color: var(--border);
+}
+
+/* Slim Luxury Announcement Bar */
+.giftora-navbar__announcement {
+  background-color: var(--color-dark-brown);
+  color: var(--color-cream);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.45rem 1rem;
+  border-bottom: 1px solid rgba(200, 165, 106, 0.25);
+}
+
+.giftora-navbar__announcement-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.giftora-navbar__announcement-sep {
+  color: var(--color-gold);
+  font-size: 0.9rem;
+}
+
+/* Main Navbar Inner */
+.giftora-navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+}
+
+/* Brand Logo */
+.giftora-navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-chocolate);
+  letter-spacing: -0.01em;
+}
+
+.giftora-navbar__logo-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-white);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.giftora-navbar__brand:hover .giftora-navbar__logo-icon {
+  transform: scale(1.05);
+  background-color: var(--color-dark-brown);
+}
+
+.giftora-navbar__logo-text {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.giftora-navbar__logo-text span {
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  margin-left: 3px;
+}
+
+/* Desktop Links */
+.giftora-navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(5rem, 1.3vw, 1.25rem);
+}
+
+.giftora-navbar__link {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-text-dark);
+  position: relative;
+  padding: 0.4rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  letter-spacing: 0.01em;
+  transition: color var(--transition-fast);
+}
+
+.giftora-navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--color-gold);
+  transition: width var(--transition-normal);
+}
+
+.giftora-navbar__link:hover {
+  color: var(--color-chocolate);
+}
+
+.giftora-navbar__link:hover::after,
+.giftora-navbar__link--active::after {
+  width: 100%;
+}
+
+.giftora-navbar__link--active {
+  color: var(--color-chocolate);
+  font-weight: 600;
+}
+
+.giftora-navbar__link--special {
+  color: var(--color-chocolate);
+}
+
+.giftora-navbar__badge-ai {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background-color: var(--color-gold-light);
+  color: var(--color-chocolate);
+  border: 1px solid rgba(200, 165, 106, 0.4);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-xs);
+}
+
+/* Right Actions */
+.giftora-navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.giftora-navbar__action-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-chocolate);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.giftora-navbar__action-btn:hover {
+  background-color: var(--color-cream);
+  border-color: var(--border);
+  color: var(--color-dark-brown);
+}
+
+.giftora-navbar__cart-btn {
+  background-color: var(--color-cream);
+  border-color: var(--border);
+}
+
+.giftora-navbar__cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: var(--color-gold);
+  color: var(--color-dark-brown);
+  font-size: 0.72rem;
+  font-weight: 700;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 4px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--surface);
+  box-shadow: 0 2px 6px rgba(40, 23, 17, 0.15);
+}
+
+/* Mobile Toggle */
+.giftora-navbar__mobile-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  align-items: center;
+  justify-content: center;
+  color: var(--color-chocolate);
+}
+
+/* Mobile Drawer */
+.giftora-navbar__mobile-drawer {
+  display: none;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  animation: fadeUp 0.25s ease-out;
+}
+
+.giftora-navbar__mobile-drawer--open {
+  display: block;
+}
+
+.giftora-navbar__mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.giftora-navbar__mobile-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-dark);
+  padding: 0.65rem 0.5rem;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.giftora-navbar__mobile-link:hover,
+.giftora-navbar__mobile-link.active {
+  background-color: var(--color-cream);
+  color: var(--color-chocolate);
+}
+
+.giftora-navbar__mobile-link--highlight {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .giftora-navbar__nav {
+    display: none;
+  }
+  .giftora-navbar__mobile-toggle {
+    display: flex;
+  }
+  .giftora-navbar__announcement {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .giftora-navbar__announcement-inner {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .giftora-navbar__announcement-sep {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .giftora-navbar__inner {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .giftora-navbar__actions {
+    gap: 0.25rem;
+  }
+
+  .giftora-navbar__actions > .giftora-navbar__action-btn:not(.giftora-navbar__cart-btn) {
+    display: none;
+  }
+}

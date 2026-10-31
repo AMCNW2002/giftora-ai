@@ -1,0 +1,245 @@
+/* ==========================================================================
+   SHOP PAGE — LUXURY EDITORIAL STYLES
+   ========================================================================== */
+
+.giftora-shop {
+  min-height: 80vh;
+}
+
+/* Hero Banner */
+.giftora-shop__hero {
+  padding: 1.5rem 0 1.5rem;
+  background: radial-gradient(ellipse at 50% 0%, rgba(200, 165, 106, 0.12) 0%, rgba(248, 241, 231, 0) 70%),
+              linear-gradient(180deg, #F8F1E7 0%, #F5EDE1 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.giftora-shop__hero-inner {
+  text-align: center;
+  max-width: 700px;
+}
+
+.giftora-shop__hero h1 {
+  font-family: var(--font-heading);
+  margin-bottom: 0.65rem;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  color: var(--color-chocolate);
+}
+
+.giftora-shop__hero p {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+/* Toolbar & Filters */
+.giftora-shop__toolbar-section {
+  padding: 0.5rem 0 1rem;
+  position: sticky;
+  top: 74px;
+  background-color: var(--background);
+  z-index: 90;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(40, 23, 17, 0.03);
+}
+
+.giftora-shop__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Search Input */
+.giftora-shop__search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 280px;
+  max-width: 520px;
+}
+
+.giftora-shop__search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-gold);
+  pointer-events: none;
+}
+
+.giftora-shop__search-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 2.5rem 0 2.6rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  font-size: 0.88rem;
+  color: var(--color-text-dark);
+  transition: all var(--transition-fast);
+}
+
+.giftora-shop__search-input:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(200, 165, 106, 0.15);
+  background-color: #FFFFFF;
+}
+
+.giftora-shop__search-clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-subtle);
+  padding: 4px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.giftora-shop__search-clear:hover {
+  color: var(--color-chocolate);
+  background-color: var(--color-cream);
+}
+
+/* Sort Select */
+.giftora-shop__sort-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.giftora-shop__sort-wrap label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-chocolate);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.giftora-shop__sort-select {
+  height: 44px;
+  padding: 0 2rem 0 1rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  font-size: 0.86rem;
+  color: var(--color-chocolate);
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.giftora-shop__sort-select:focus {
+  border-color: var(--color-gold);
+  outline: none;
+}
+
+/* Active Status Bar */
+.giftora-shop__status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.giftora-shop__count strong {
+  color: var(--color-chocolate);
+}
+
+.giftora-shop__clear-btn {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color var(--transition-fast);
+}
+
+.giftora-shop__clear-btn:hover {
+  color: var(--color-dark-brown);
+  text-decoration: underline;
+}
+
+/* Products Grid Section */
+.giftora-shop__grid-section {
+  padding: 1.5rem 0 5rem;
+}
+
+.giftora-shop__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+}
+
+/* Empty State */
+.giftora-shop__empty {
+  text-align: center;
+  padding: 5rem 1.5rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  max-width: 540px;
+  margin: 2rem auto;
+}
+
+.giftora-shop__empty-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-cream);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  color: var(--color-gold);
+}
+
+.giftora-shop__empty h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--color-chocolate);
+  margin-bottom: 0.5rem;
+}
+
+.giftora-shop__empty p {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .giftora-shop__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .giftora-shop__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .giftora-shop__grid {
+    grid-template-columns: 1fr;
+  }
+  .giftora-shop__toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .giftora-shop__search-wrap {
+    max-width: 100%;
+  }
+}

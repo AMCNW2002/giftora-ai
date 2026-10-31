@@ -1,0 +1,304 @@
+/* ==========================================================================
+   GIFTORA AI — LUXURY FLOATING CONCIERGE CHAT STYLES
+   ========================================================================== */
+
+.giftora-ai-orb-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+}
+
+/* Floating Trigger Orb Button */
+.giftora-ai-orb {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-chocolate);
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(40, 23, 17, 0.25);
+  border: 1.5px solid var(--color-gold);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), background-color var(--transition-fast);
+  cursor: pointer;
+}
+
+.giftora-ai-orb:hover {
+  transform: scale(1.06) translateY(-2px);
+  background-color: var(--color-dark-brown);
+  box-shadow: 0 10px 28px rgba(40, 23, 17, 0.35);
+}
+
+.giftora-ai-orb__pulse-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-gold);
+  animation: pulseSlow 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.giftora-ai-orb__icon {
+  position: relative;
+  z-index: 2;
+  transition: transform var(--transition-fast);
+}
+
+.giftora-ai-orb:hover .giftora-ai-orb__icon {
+  transform: rotate(12deg);
+}
+
+/* Tooltip on Hover */
+.giftora-ai-orb__tooltip {
+  position: absolute;
+  right: 72px;
+  background-color: var(--color-dark-brown);
+  color: var(--color-cream);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border-radius: var(--radius-xs);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(200, 165, 106, 0.3);
+}
+
+.giftora-ai-orb:hover .giftora-ai-orb__tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Chat Window */
+.giftora-ai-chat-window {
+  width: 360px;
+  height: 510px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 40px rgba(40, 23, 17, 0.18);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeUp 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Header */
+.giftora-ai-chat__header {
+  padding: 1rem 1.25rem;
+  background-color: var(--color-dark-brown);
+  color: var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(200, 165, 106, 0.2);
+}
+
+.giftora-ai-chat__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.giftora-ai-chat__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-chocolate);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+}
+
+.giftora-ai-chat__brand h4 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-cream);
+  margin-bottom: 0.1rem;
+}
+
+.giftora-ai-chat__status {
+  font-size: 0.72rem;
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.giftora-ai-chat__status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background-color: #55B374;
+}
+
+.giftora-ai-chat__close {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #B5A192;
+  transition: all var(--transition-fast);
+}
+
+.giftora-ai-chat__close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-cream);
+}
+
+/* Messages Area */
+.giftora-ai-chat__messages {
+  flex: 1;
+  padding: 1rem 1.15rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  background-color: var(--surface);
+}
+
+.giftora-ai-chat__bubble {
+  max-width: 85%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  animation: fadeUp 0.25s ease-out;
+}
+
+.giftora-ai-chat__bubble--bot {
+  align-self: flex-start;
+  background-color: var(--color-cream);
+  color: var(--color-text-dark);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 2px;
+}
+
+.giftora-ai-chat__bubble--user {
+  align-self: flex-end;
+  background-color: var(--color-chocolate);
+  color: var(--color-cream);
+  border-bottom-right-radius: 2px;
+}
+
+/* Typing Indicator */
+.giftora-ai-chat__typing {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.6rem 0.85rem;
+  background-color: var(--color-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.giftora-ai-chat__typing-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-gold);
+  animation: pulseSlow 1.2s infinite;
+}
+
+/* Quick Prompts Chips */
+.giftora-ai-chat__chips {
+  padding: 0.65rem 1rem;
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  background-color: var(--color-cream);
+  border-top: 1px solid var(--border-light);
+}
+
+.giftora-ai-chat__chip {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--color-chocolate);
+  transition: all var(--transition-fast);
+}
+
+.giftora-ai-chat__chip:hover {
+  border-color: var(--color-gold);
+  background-color: var(--color-gold-light);
+}
+
+/* Footer / Input Bar */
+.giftora-ai-chat__input-bar {
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.giftora-ai-chat__input {
+  flex: 1;
+  padding: 0.6rem 0.85rem;
+  background-color: var(--color-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  font-size: 0.85rem;
+  color: var(--color-text-dark);
+}
+
+.giftora-ai-chat__input:focus {
+  border-color: var(--color-gold);
+  background-color: #FFFFFF;
+}
+
+.giftora-ai-chat__send-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-chocolate);
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.giftora-ai-chat__send-btn:hover:not(:disabled) {
+  background-color: var(--color-dark-brown);
+  transform: translateY(-1px);
+}
+
+.giftora-ai-chat__send-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .giftora-ai-chat-window {
+    width: calc(100vw - 32px);
+    right: 16px;
+    bottom: 84px;
+    height: 480px;
+  }
+}

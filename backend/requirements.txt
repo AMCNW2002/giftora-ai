@@ -1,0 +1,16 @@
+# Web framework + server
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.30
+
+# MongoDB driver (async). dnspython is needed for "mongodb+srv://" Atlas links.
+pymongo>=4.13,<5.0
+dnspython>=2.6
+
+# Settings from .env file, request validation, email validation
+pydantic>=2.7
+pydantic-settings>=2.3
+email-validator>=2.1
+
+# Login security: password hashing + JWT tokens
+bcrypt>=4.1
+PyJWT>=2.8

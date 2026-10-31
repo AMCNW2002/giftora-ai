@@ -1,0 +1,453 @@
+/* ==========================================================================
+   GIFTORA AI — CART PAGE STYLES
+   ========================================================================== */
+
+.giftora-cart-page {
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
+}
+
+/* Header */
+.giftora-cart-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  
+  border-bottom: 1.5px solid var(--border);
+}
+.shopping-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.giftora-cart-clear-btn {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+.giftora-cart-clear-btn:hover {
+  color: var(--danger);
+}
+
+/* Free Shipping Banner */
+.giftora-cart-shipping-banner {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.giftora-cart-shipping-banner__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--secondary);
+  margin-bottom: 0.75rem;
+}
+
+.giftora-cart-shipping-icon {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.giftora-cart-progress-track {
+  width: 100%;
+  height: 8px;
+  background-color: var(--background);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.giftora-cart-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-normal) ease-out;
+}
+
+/* Layout */
+.giftora-cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 5rem;
+  align-items: flex-start;
+}
+
+/* Cart Items */
+.giftora-cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.giftora-cart-item {
+  display: flex;
+  gap: 1.5rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  transition: box-shadow var(--transition-fast);
+}
+
+.giftora-cart-item:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.giftora-cart-item__image-wrap {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: var(--background);
+}
+
+.giftora-cart-item__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.giftora-cart-item__details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.giftora-cart-item__category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+
+.giftora-cart-item__title {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.giftora-cart-item__title a:hover {
+  color: var(--primary);
+}
+
+.giftora-cart-item__unit-price {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.giftora-cart-item__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.giftora-cart-item__qty {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 2px 4px;
+}
+
+.giftora-cart-item__qty button {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+  transition: all var(--transition-fast);
+}
+
+.giftora-cart-item__qty button:hover {
+  background-color: var(--surface);
+  color: var(--primary);
+}
+
+.giftora-cart-item__qty span {
+  font-size: 0.9rem;
+  font-weight: 700;
+  width: 32px;
+  text-align: center;
+}
+
+.giftora-cart-item__subtotal {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.giftora-cart-item__remove {
+  color: var(--text-muted);
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.giftora-cart-item__remove:hover {
+  color: var(--danger);
+  background-color: var(--danger-light);
+}
+
+.giftora-cart-continue {
+  margin-top: 1rem;
+}
+
+.giftora-cart-continue__link {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--secondary);
+  transition: color var(--transition-fast);
+}
+
+.giftora-cart-continue__link:hover {
+  color: var(--primary);
+}
+
+/* Summary Sidebar */
+.giftora-cart-summary__card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 92px;
+}
+
+.giftora-cart-summary__card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.giftora-cart-summary__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.giftora-cart-summary__row--discount {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.giftora-cart-summary__shipping-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.free-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  background-color: var(--success-light);
+  color: var(--success);
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+}
+
+.giftora-cart-summary__free-wrap {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.giftora-cart-summary__divider {
+  height: 1px;
+  background-color: var(--border);
+  margin: 1.25rem 0;
+}
+
+.giftora-cart-summary__total-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.giftora-cart-summary__total-row strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--secondary);
+}
+
+.giftora-cart-summary__total-row span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.giftora-cart-summary__grand-price {
+  font-family: var(--font-body);
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+/* Promo Form */
+.giftora-cart-promo-form {
+  margin-bottom: 1.5rem;
+}
+
+.giftora-cart-promo-input-wrap {
+  display: flex;
+  align-items: center;
+  background-color: var(--background);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 3px 4px 3px 12px;
+  position: relative;
+}
+
+.giftora-cart-promo-icon {
+  color: var(--text-muted);
+  margin-right: 6px;
+}
+
+.giftora-cart-promo-input-wrap input {
+  flex: 1;
+  font-size: 0.88rem;
+  color: var(--secondary);
+}
+
+.giftora-cart-promo-btn {
+  padding: 0.45rem 1rem;
+  background-color: var(--secondary);
+  color: #ffffff;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color var(--transition-fast);
+}
+
+.giftora-cart-promo-btn:hover {
+  background-color: var(--primary);
+}
+
+.giftora-cart-promo-msg {
+  display: block;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  padding-left: 0.5rem;
+}
+
+.giftora-cart-promo-msg--success {
+  color: var(--success);
+}
+
+.giftora-cart-promo-msg--error {
+  color: var(--danger);
+}
+
+.giftora-cart-checkout-btn {
+  width: 100%;
+}
+
+.giftora-cart-summary__trust {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border);
+}
+
+.giftora-cart-summary__trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Empty State */
+.giftora-cart-empty {
+  padding: 6rem 1.5rem 8rem;
+  text-align: center;
+}
+
+.giftora-cart-empty__card {
+  max-width: 520px;
+  margin: 0 auto;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 4rem 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.giftora-cart-empty__icon {
+  width: 84px;
+  height: 84px;
+  border-radius: var(--radius-full);
+  background-color: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.giftora-cart-empty h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.giftora-cart-empty p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.giftora-cart-empty__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .giftora-cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .giftora-cart-summary__card {
+    position: static;
+  }
+}
+
+@media (max-width: 520px) {
+  .giftora-cart-item {
+    flex-direction: column;
+  }
+
+  .giftora-cart-item__image-wrap {
+    width: 100%;
+    height: 140px;
+  }
+
+  .giftora-cart-item__bottom {
+    margin-top: 1rem;
+  }
+}

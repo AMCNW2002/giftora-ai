@@ -1,0 +1,159 @@
+/* ==========================================================================
+   BOX ITEM CARD — LUXURY EDITORIAL STYLES
+   ========================================================================== */
+
+.giftora-box-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+}
+
+.giftora-box-item:hover {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.giftora-box-item__img {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-xs);
+  object-fit: cover;
+  flex-shrink: 0;
+  background-color: var(--color-cream);
+}
+
+.giftora-box-item__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.giftora-box-item__category {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  letter-spacing: 0.08em;
+  display: block;
+}
+
+.giftora-box-item__title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-chocolate);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.giftora-box-item__price {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.giftora-box-item__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.giftora-box-item__qty {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  padding: 2px;
+}
+
+.giftora-box-item__qty button {
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-chocolate);
+  transition: all var(--transition-fast);
+}
+
+.giftora-box-item__qty button:hover {
+  background-color: var(--surface);
+  color: var(--color-dark-brown);
+}
+
+.giftora-box-item__qty span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: 22px;
+  text-align: center;
+}
+
+.giftora-box-item__total {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-chocolate);
+  min-width: 55px;
+  text-align: right;
+}
+
+.giftora-box-item__remove {
+  color: var(--color-text-subtle);
+  padding: 4px;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.giftora-box-item__remove:hover {
+  color: var(--danger);
+  background-color: var(--danger-light);
+}
+
+@media (max-width: 540px) {
+  .giftora-box-item {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 0.5rem 0.7rem;
+    padding: 0.7rem;
+  }
+
+  .giftora-box-item__img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .giftora-box-item__title {
+    font-size: 0.98rem;
+  }
+
+  .giftora-box-item__actions {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    padding-top: 0.45rem;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .giftora-box-item__qty button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .giftora-box-item__qty span {
+    width: 26px;
+  }
+
+  .giftora-box-item__remove {
+    min-width: 36px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,107 @@
+/* ==========================================================================
+   BOX BUDGET BAR — LUXURY EDITORIAL STYLES
+   ========================================================================== */
+
+.giftora-budget-bar {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.giftora-budget-bar__labels {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+}
+
+.giftora-budget-bar__title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-chocolate);
+}
+
+.giftora-budget-bar__amounts {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.92rem;
+}
+
+.giftora-budget-bar__current {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-chocolate);
+}
+
+.giftora-budget-bar__current.text-danger {
+  color: var(--danger);
+}
+
+.giftora-budget-bar__divider {
+  color: var(--color-text-subtle);
+}
+
+.giftora-budget-bar__target {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+/* Progress Track */
+.giftora-budget-bar__track {
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-beige-light);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: 0.65rem;
+  border: 1px solid var(--border-light);
+}
+
+.giftora-budget-bar__track--over {
+  border-color: rgba(158, 59, 59, 0.4);
+}
+
+.giftora-budget-bar__fill {
+  height: 100%;
+  background-color: var(--color-gold);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-normal) ease-out, background-color var(--transition-fast);
+}
+
+.giftora-budget-bar__fill--over {
+  background-color: var(--danger);
+}
+
+/* Status Line */
+.giftora-budget-bar__status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.giftora-budget-bar__status-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 500;
+}
+
+.giftora-budget-bar__status-text--ok {
+  color: var(--success);
+}
+
+.giftora-budget-bar__status-text--over {
+  color: var(--danger);
+}
+
+.giftora-budget-bar__percent {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
